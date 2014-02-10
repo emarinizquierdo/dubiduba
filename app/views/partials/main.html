@@ -1,0 +1,20 @@
+<div ng-include="'partials/navbar'" class="navbar"></div>
+
+<div class="jumbotron">
+  <h1> Bienvenido a Dubi-Duba, <span ng-show="currentUser">{{ currentUser.name }}</span>!</h1>
+  <p class="lead">
+    <img src="images/dubiduba.png"/>
+    Pronto podrás disfrutar de nuestros artículos.
+  </p>
+  <p><a class="btn btn-lg btn-success" ng-href="#">:-)</a></p>
+</div>
+
+<div>
+<div ng-repeat="item in items">
+  {{item.name}}
+  {{item.description}}
+</div>
+</div>
+<div class="footer">
+  <p>dubi-duba team</p>
+</div>
