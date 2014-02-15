@@ -25,13 +25,21 @@ angular.module('dubidubaApp', [
         controller: 'SettingsCtrl',
         authenticate: true
       })
-      .when('/admin/article', {
-        templateUrl: 'partials/articleAdmin',
-        controller: 'ArticleAdminCtrl'
-      })
       .when('/admin', {
         templateUrl: 'partials/admin',
         controller: 'AdminCtrl'
+      })
+      .when('/admin/article', {
+        templateUrl: 'partials/admin/article',
+        controller: 'AdminArticleCtrl'
+      })
+      .when('/admin/article/new', {
+        templateUrl: 'partials/admin/article/new',
+        controller: 'AdminArticleNewCtrl'
+      })
+      .when('/admin/article/view/:id', {
+        templateUrl: 'partials/admin/article/view',
+        controller: 'AdminArticleViewCtrl'
       })
       .otherwise({
         redirectTo: '/'

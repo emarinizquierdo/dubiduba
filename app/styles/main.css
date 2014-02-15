@@ -63,6 +63,27 @@ body {
   margin-top: 28px;
 }
 
+/* Article styles */
+.article textarea{
+  min-height: 300px;
+  max-height: 600px;
+  resize: vertical;
+}
+
+.article .article-table .item-id{
+  cursor: pointer;
+}
+
+.article .article-table .first-icon{
+  cursor: pointer;
+}
+
+.article .article-table .second-icon{
+  margin-left:10px;
+  cursor: pointer;
+}
+
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */

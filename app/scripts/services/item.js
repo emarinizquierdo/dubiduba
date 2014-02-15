@@ -2,7 +2,7 @@
 
 angular.module('dubidubaApp')
   .factory('Item', function ($resource) {
-    return $resource('/api/item/', null, 
+    return $resource('/api/item/:id', { id: '@id' },
     { //parameters default
       create: {
         method: 'POST'
@@ -11,7 +11,9 @@ angular.module('dubidubaApp')
         method: 'PUT'
       },
       get: {
-        method: 'GET'
+        method: 'GET',
+        params: {
+        }
       }
 	  });
   });
