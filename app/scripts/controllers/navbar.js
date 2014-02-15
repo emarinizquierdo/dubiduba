@@ -2,15 +2,18 @@
 
 angular.module('dubidubaApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
+
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
     },
     {
-      'title': 'Admin',
+      'title': 'Administración',
       'link': '/admin'
     }];
-    
+
+    $scope.hasSession = false;
+
     $scope.logout = function() {
       Auth.logout()
       .then(function() {
@@ -21,4 +24,7 @@ angular.module('dubidubaApp')
     $scope.isActive = function(route) {
       return route === $location.path();
     };
+
+    $scope.isAdmin = Auth.isAdminLoggedIn;
+
   });

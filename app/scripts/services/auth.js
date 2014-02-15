@@ -107,5 +107,15 @@ angular.module('dubidubaApp')
         var user = $rootScope.currentUser;
         return !!user;
       },
+
+      /**
+       * Simple check to see if a user is logged in and is admin 
+       * 
+       * @return {Boolean}
+       */
+      isAdminLoggedIn: function() {
+        var user = ($rootScope.currentUser && ($rootScope.currentUser.role === "admin"));
+        return !!user;
+      },
     };
   });
