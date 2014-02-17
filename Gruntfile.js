@@ -277,7 +277,9 @@ module.exports = function (grunt) {
           dot: true,
           cwd: '<%= yeoman.app %>/views',
           dest: '<%= yeoman.dist %>/views',
-          src: '**/*.jade'
+          src: [
+            './**/*'
+          ]
         }, {
           expand: true,
           cwd: '.tmp/images',
