@@ -13,9 +13,10 @@ angular.module('dubidubaApp')
           email: $scope.user.email,
           password: $scope.user.password
         })
-        .then( function() {
-          // Logged in, redirect to home
-          $location.path('/');
+        .then( function( p_user ) {
+          if(p_user.role == 'admin'){
+            //OAuth.redirect('flickr', {'cache' : true }, "/#/admin");
+          }
         })
         .catch( function(err) {
           err = err.data;

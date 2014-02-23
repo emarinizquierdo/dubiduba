@@ -41,6 +41,7 @@ angular.module('dubidubaApp')
 
         return Session.delete(function() {
             $rootScope.currentUser = null;
+            //OAuth.clearCache('flickr');
             return cb();
           },
           function(err) {
