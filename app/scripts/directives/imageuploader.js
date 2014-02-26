@@ -17,8 +17,8 @@ angular.module('dubidubaApp')
 
           var file = e.target.files[0];
           console.log('file is ' + JSON.stringify(file));
-          var uploadUrl = "https://up.flickr.com/services/upload/";
-          Flickr.uploadPhoto(file, uploadUrl);
+          
+          Flickr.uploadPhoto(file);
 
         });
 

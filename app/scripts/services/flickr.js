@@ -6,6 +6,23 @@ angular.module('dubidubaApp')
     return {
 	    uploadPhoto : function(file, uploadUrl, p_success, p_error){
 
+            var fd = new FormData();
+            fd.append('file', file);
+
+            $http({
+                method : 'POST',
+                data : fd,
+                url : '/flickr',
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                transformRequest: angular.identity
+            })
+            .success(function(){
+            })
+            .error(function(){
+            });
+
 	    	/*
 	    	var	_url = "https://up.flickr.com/services/upload/", 
 	    		_accessToken = "72157641341143115-8b1d4c33bd83142e",
@@ -92,7 +109,7 @@ myApp.service('$fileUpload', ['$http', function ($http) {
     .success(function(){
     })
     .error(function(){
-    });*/
+    });
 
 var consumer =
 { consumerKey    : "786150f03ddf503b63ad2ad6a4f7153b"
@@ -134,7 +151,7 @@ var consumer =
     requestToken.setRequestHeader("Authorization", authorizationHeader);
     //requestToken.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     requestToken.send(requestBody);
-*/
+
  	$http.post(message.action, requestBody, {
         transformRequest: angular.identity,
         headers: {
@@ -146,8 +163,10 @@ var consumer =
     })
     .error(function(){
     });
-
+*/
     }
+
+    
 }
 }]);
 

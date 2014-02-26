@@ -68,6 +68,7 @@ angular.module('dubidubaApp', [
   })
   .run(function ($rootScope, $location, Auth, User) {
     //OAuth.initialize('sNAY50SnLAU-gN9SCFtWDpRzJDs', {'cache':true});
+    //OAuth.initialize('L7zZ1sfWml2vf8NRNCZskvc1t8g');
 
     // Redirect to login if route requires auth and you're not logged in
     $rootScope.$on('$routeChangeStart', function (event, next) {
