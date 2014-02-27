@@ -10,6 +10,7 @@
     "passport": "latest",
     "passport-local": "latest",
     "flickr-with-uploads": "*",
+    "formidable": "~1.0.14",
     "ejs": "~0.8.4"
   },
   "devDependencies": {
