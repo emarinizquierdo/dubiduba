@@ -52,6 +52,7 @@ body {
   height: 50px;
   margin: 10px;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .img-to-load .glyphicon {
@@ -70,6 +71,15 @@ body {
   cursor: pointer;
   opacity: 0;
   height: 50px;
+}
+
+.img-to-load .progress-bar-loading {
+  margin-top: 10px;
+}
+
+.img-to-load img {
+  width: 40px;
+  height: 40px;
 }
 
 /* Customize container */
