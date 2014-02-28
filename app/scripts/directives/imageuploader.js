@@ -5,6 +5,10 @@ angular.module('dubidubaApp')
     return {
       templateUrl: 'partials/imageuploader.html',
       restrict: 'A',
+      scope: {
+        imagesToLoad : "=",
+        imagesLoading : "="
+      },
       link: function(scope, element, attrs, $q){
         
       },
@@ -13,6 +17,9 @@ angular.module('dubidubaApp')
         $scope.imagesToLoad = [];
         $scope.imagesToLoad[0] = { loading : false };
 
+        $scope.$watch('imagesLoading', function(p_data){
+          debugger;
+        })
       }
     };
   })
@@ -21,7 +28,8 @@ angular.module('dubidubaApp')
       templateUrl : 'partials/imageToUpload.html',
       restrict: 'A',
       scope: {
-        imagesToLoad : "="
+        imagesToLoad : "=",
+        imagesLoading : "="
       },
       link: function(scope, element, attrs){
 
@@ -38,6 +46,7 @@ angular.module('dubidubaApp')
         $element.bind('change', function(e){
           
             $scope.imagesToLoad[_actualImageIndex] = { loading : false };
+            $scope.imagesLoading += 1;
 
             var file = e.target.files[0];
             
@@ -54,12 +63,17 @@ angular.module('dubidubaApp')
                 + p_data.photo.server + "/" 
                 + p_data.photo.id + "_" 
                 + p_data.photo.secret + "_s.jpg";
+
+                $scope.imagesLoading -= 1;
+
             },function(p_error){
               $scope.loading = false;
               $scope.loaded = false;
               $scope.imagesToLoad[_actualImageIndex].loaded = false;
               $scope.errorLoading = true;
               $element.unbind('change');
+              $scope.imagesLoading -= 1;
+
             });
 
           });

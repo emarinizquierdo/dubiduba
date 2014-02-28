@@ -5,7 +5,8 @@ angular.module('dubidubaApp')
 	
 	$scope.errors = {};
     $scope.articleData = {}
-    
+    $scope.imagesLoading = 0;
+
     $scope.goTo = function( p_route ){
 		$location.path(p_route);
 	}
