@@ -23,15 +23,29 @@ angular.module('dubidubaApp')
       controller: function($scope, $element, $q, Flickr){
 
         $scope.loading = false;
+        
         $scope.imageSrc;
-        $scope.imageLoaded = false;
+        
+        var _actualImageIndex = $scope.$index;
+
+        $scope.loaded = $scope.$parent.imagesToLoad[_actualImageIndex].loaded;
+        if($scope.loaded){
+          $scope.imageSrc = "http://farm" 
+          + $scope.$parent.imagesToLoad[_actualImageIndex].photo.farm 
+          + ".staticflickr.com/" 
+          + $scope.$parent.imagesToLoad[_actualImageIndex].photo.server + "/" 
+          + $scope.$parent.imagesToLoad[_actualImageIndex].photo.id + "_" 
+          + $scope.$parent.imagesToLoad[_actualImageIndex].photo.secret + "_s.jpg";
+        }
+
+
         $scope.errorLoading = false;
 
-        var _actualImageIndex = $scope.$parent.imagesToLoad.length;
+
 
         $element.bind('change', function(e){
           
-            $scope.$parent.imagesToLoad[_actualImageIndex] = { loading : false };
+            $scope.$parent.imagesToLoad[_actualImageIndex + 1] = { loading : false };
             $scope.$parent.imagesLoading += 1;
 
             var file = e.target.files[0];

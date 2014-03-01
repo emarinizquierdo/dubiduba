@@ -6,24 +6,28 @@ angular.module('dubidubaApp')
 	$scope.errors = {};
     $scope.articleData = {}
     $scope.imagesLoading = 0;
+    $scope.imagesToLoad;
 
-    $scope.imagesToLoad = [];
-    $scope.imagesToLoad[0] = { loading : false };
+    function _Init(){
+        $scope.imagesToLoad = $scope.articleData.photos;
+        $scope.imagesToLoad[$scope.imagesToLoad.length] = {loading : false};
+    }
 
     $scope.goTo = function( p_route ){
 		$location.path(p_route);
 	}
 
   	$scope.saveArticle = function(p_data){
+
         if($scope.imagesToLoad.length > 0){
             var _i = 0;
             for(_i = 0; _i < $scope.imagesToLoad.length; _i++){
-                if($scope.imagesToLoad[_i].loaded){
-                    p_data.photos.push($scope.imagesToLoad[_i]);
+                if(!$scope.imagesToLoad[_i].loaded){
+                    p_data.photos.pop($scope.imagesToLoad[_i]);
                 }
             }
         }
-        
+
         Item.update(p_data, _OnSuccess, _OnError);
     }
 
@@ -37,6 +41,7 @@ angular.module('dubidubaApp')
 
     $http.get('/api/item/' + $routeParams.id).success(function(article) {
       $scope.articleData = article;
+      _Init();
     }).error(function(error){
     	
     });
