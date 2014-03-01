@@ -18,6 +18,8 @@
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="bower_components/bootstrap-tagsinput/bootstrap-tagsinput-angular.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-colorselector-0.2.0/css/bootstrap-colorselector.css" />
     <!-- endbuild -->
   </head>
   <body ng-app="dubidubaApp">
@@ -43,7 +45,7 @@
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
-
+    
     <!-- build:js(app) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/ng-file-upload/angular-file-upload-shim.min.js"></script>
@@ -61,6 +63,9 @@
 
         <!--<script src="scripts/oauthio.js"></script>-->
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="bower_components/bootstrap-colorselector-0.2.0/js/bootstrap-colorselector.js"></script>
+        <script src="bower_components/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>      
+        <script src="bower_components/bootstrap-tagsinput/bootstrap-tagsinput-angular.js"></script>
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/navbar.js"></script>

@@ -23,7 +23,7 @@ angular.module('dubidubaApp')
             var _i = 0;
             for(_i = 0; _i < $scope.imagesToLoad.length; _i++){
                 if(!$scope.imagesToLoad[_i].loaded){
-                    p_data.photos.pop($scope.imagesToLoad[_i]);
+                    p_data.photos.splice(_i, 1);
                 }
             }
         }

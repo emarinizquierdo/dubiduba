@@ -82,6 +82,14 @@ body {
   height: 40px;
 }
 
+.img-to-load .remove-photo {
+  position: absolute;
+  top: -4px;
+  right: 7px;
+  color: red;
+  font-size: 18px;
+}
+
 /* Customize container */
 @media (min-width: 768px) {
   .container {

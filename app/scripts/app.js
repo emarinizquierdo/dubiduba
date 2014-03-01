@@ -5,7 +5,8 @@ angular.module('dubidubaApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'angularFileUpload'
+  'angularFileUpload',
+  'bootstrap-tagsinput'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider

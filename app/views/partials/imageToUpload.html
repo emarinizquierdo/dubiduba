@@ -1,6 +1,9 @@
 <div ng-hide="errorLoading">
 	<span class="glyphicon glyphicon-plus" ng-hide="loading || loaded"></span>
 	<div class="" ng-show="!loading && loaded">
+		<div class="remove-photo" ng-click="removePhoto($index)">
+			<span class="glyphicon glyphicon-remove-circle"></span>
+		</div>
 		<img ng-src="{{imageSrc}}"/>
 	</div>
 	<div class="progress progress-striped active progress-bar-loading" ng-show="loading">

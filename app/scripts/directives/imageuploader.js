@@ -22,26 +22,11 @@ angular.module('dubidubaApp')
       },
       controller: function($scope, $element, $q, Flickr){
 
-        $scope.loading = false;
-        
-        $scope.imageSrc;
-        
         var _actualImageIndex = $scope.$index;
-
+        $scope.loading = false;
+        $scope.imageSrc;
         $scope.loaded = $scope.$parent.imagesToLoad[_actualImageIndex].loaded;
-        if($scope.loaded){
-          $scope.imageSrc = "http://farm" 
-          + $scope.$parent.imagesToLoad[_actualImageIndex].photo.farm 
-          + ".staticflickr.com/" 
-          + $scope.$parent.imagesToLoad[_actualImageIndex].photo.server + "/" 
-          + $scope.$parent.imagesToLoad[_actualImageIndex].photo.id + "_" 
-          + $scope.$parent.imagesToLoad[_actualImageIndex].photo.secret + "_s.jpg";
-        }
-
-
         $scope.errorLoading = false;
-
-
 
         $element.bind('change', function(e){
           
@@ -77,6 +62,21 @@ angular.module('dubidubaApp')
             });
 
           });
+
+        if($scope.loaded){
+          $scope.imageSrc = "http://farm" 
+          + $scope.$parent.imagesToLoad[_actualImageIndex].photo.farm 
+          + ".staticflickr.com/" 
+          + $scope.$parent.imagesToLoad[_actualImageIndex].photo.server + "/" 
+          + $scope.$parent.imagesToLoad[_actualImageIndex].photo.id + "_" 
+          + $scope.$parent.imagesToLoad[_actualImageIndex].photo.secret + "_s.jpg";
+          $element.unbind('change');
+          $element.find('input').remove();
+        }
+
+        $scope.removePhoto = function(p_index){
+          $scope.$parent.imagesToLoad.splice(p_index, 1);
+        }
       }
     }
   });
