@@ -8,9 +8,22 @@ angular.module('dubidubaApp')
     $scope.imagesLoading = 0;
     $scope.imagesToLoad;
 
+    $scope.sizes = [
+        {   name : 'Talla estándar',
+            value : 0
+        },
+        {   name : 'Dimensiones',
+            value : 1
+        },
+        {   name : 'Otras tallas',
+            value : 2
+        }
+    ];
+
     function _Init(){
         $scope.imagesToLoad = $scope.articleData.photos;
         $scope.imagesToLoad[$scope.imagesToLoad.length] = {loading : false};
+        $scope.articleData.sizeSelected = $scope.sizes[$scope.articleData.sizeSelected.value];
     }
 
     $scope.goTo = function( p_route ){
