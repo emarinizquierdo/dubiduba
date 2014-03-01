@@ -22,7 +22,7 @@
 	        <input type="text" name="price" class="form-control" ng-model="articleData.price" />    
 	      </div>
 
-	      <div image-uploader images-to-load="imagesToSave" images-loading="imagesLoading"></div>{{imagesLoading}}
+	      <div image-uploader ></div>{{imagesLoading}}
 	      <button class="btn btn-lg btn-primary" type="submit" ng-class="{disabled: (imagesLoading > 0)}">Guardar cambios</button>
 	      <button class="btn btn-lg btn-primary" ng-click="goTo('admin/article')">Cancelar</button>
 

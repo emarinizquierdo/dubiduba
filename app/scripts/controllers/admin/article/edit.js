@@ -7,11 +7,23 @@ angular.module('dubidubaApp')
     $scope.articleData = {}
     $scope.imagesLoading = 0;
 
+    $scope.imagesToLoad = [];
+    $scope.imagesToLoad[0] = { loading : false };
+
     $scope.goTo = function( p_route ){
 		$location.path(p_route);
 	}
 
   	$scope.saveArticle = function(p_data){
+        if($scope.imagesToLoad.length > 0){
+            var _i = 0;
+            for(_i = 0; _i < $scope.imagesToLoad.length; _i++){
+                if($scope.imagesToLoad[_i].loaded){
+                    p_data.photos.push($scope.imagesToLoad[_i]);
+                }
+            }
+        }
+        
         Item.update(p_data, _OnSuccess, _OnError);
     }
 

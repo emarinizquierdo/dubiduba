@@ -5,21 +5,11 @@ angular.module('dubidubaApp')
     return {
       templateUrl: 'partials/imageuploader.html',
       restrict: 'A',
-      scope: {
-        imagesToLoad : "=",
-        imagesLoading : "="
-      },
       link: function(scope, element, attrs, $q){
         
       },
       controller: function postLink($scope, $element, $q, Flickr) {
 
-        $scope.imagesToLoad = [];
-        $scope.imagesToLoad[0] = { loading : false };
-
-        $scope.$watch('imagesLoading', function(p_data){
-          debugger;
-        })
       }
     };
   })
@@ -27,10 +17,6 @@ angular.module('dubidubaApp')
     return {
       templateUrl : 'partials/imageToUpload.html',
       restrict: 'A',
-      scope: {
-        imagesToLoad : "=",
-        imagesLoading : "="
-      },
       link: function(scope, element, attrs){
 
       },
@@ -41,20 +27,20 @@ angular.module('dubidubaApp')
         $scope.imageLoaded = false;
         $scope.errorLoading = false;
 
-        var _actualImageIndex = $scope.imagesToLoad.length;
+        var _actualImageIndex = $scope.$parent.imagesToLoad.length;
 
         $element.bind('change', function(e){
           
-            $scope.imagesToLoad[_actualImageIndex] = { loading : false };
-            $scope.imagesLoading += 1;
+            $scope.$parent.imagesToLoad[_actualImageIndex] = { loading : false };
+            $scope.$parent.imagesLoading += 1;
 
             var file = e.target.files[0];
             
             $scope.loading = true;
 
             Flickr.uploadPhoto(file, function(p_data){
-              $scope.imagesToLoad[_actualImageIndex].photo = p_data.photo;
-              $scope.imagesToLoad[_actualImageIndex].loaded = true;
+              $scope.$parent.imagesToLoad[_actualImageIndex].photo = p_data.photo;
+              $scope.$parent.imagesToLoad[_actualImageIndex].loaded = true;
               $scope.loading = false;
               $scope.loaded = true;
               $scope.imageSrc = "http://farm" 
@@ -64,15 +50,15 @@ angular.module('dubidubaApp')
                 + p_data.photo.id + "_" 
                 + p_data.photo.secret + "_s.jpg";
 
-                $scope.imagesLoading -= 1;
+                $scope.$parent.imagesLoading -= 1;
 
             },function(p_error){
               $scope.loading = false;
               $scope.loaded = false;
-              $scope.imagesToLoad[_actualImageIndex].loaded = false;
+              $scope.$parent.imagesToLoad[_actualImageIndex].loaded = false;
               $scope.errorLoading = true;
               $element.unbind('change');
-              $scope.imagesLoading -= 1;
+              $scope.$parent.imagesLoading -= 1;
 
             });
 
