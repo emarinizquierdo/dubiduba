@@ -2,17 +2,49 @@
 	<div ng-include="'partials/navbar'" class="header-wrapper"></div>
 
 
-	<div class="border-dotted">
-		<img class="img-responsive" src="images/5126c1c747cdf45d49d9960f67a067c6c9138a79.jpg"/>
-	</div>
-	  
-	<div class="main-thumbnail">
-		<img ng-src="{{items[0].mainPhoto}}"/>
+	<div class="main-banners-block border-dotted">
+		<img class="img-responsive" ng-src="{{maininfo.mainPhoto}}"/>
 	</div>
 
-	<div ng-repeat="item in items">
-	  {{item.name}}
-	  {{item.description}}
+	<div class="main-message-block">
+		<div class="main-banner-title copse-font"><span class="border-bottom-dotted">{{maininfo.mainbannertitle}}</span></div>
+		<div class="main-banner-subtitle copse-font"><span class="border-bottom-dotted">{{maininfo.mainbannersubtitle}}</span></div>
+	</div>
+	<div class="main-small-images-block row">
+		<div class="col-md-6">
+			<div class="header favourites-header copse-font">
+				Nuestros favoritos
+			</div>
+			<div class="favourites-body">
+				<div class="main-thumbnail" ng-click="goTo('admin/article/view/' + items[0]._id)">
+					<div class="main-thumbnail-hidder">
+						<img ng-src="{{items[0].mainPhoto}}"/>
+					</div>
+				</div>
+				<div class="main-thumbnail" ng-click="goTo('admin/article/view/' + items[1]._id)">
+					<div class="main-thumbnail-hidder">
+						<img ng-src="{{items[1].mainPhoto}}"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="header newest-header copse-font">
+				Últimas novedades
+			</div>
+			<div class="newest-body">
+				<div class="main-thumbnail" ng-click="goTo('admin/article/view/' + items[0]._id)">
+					<div class="main-thumbnail-hidder" >
+						<img ng-src="{{items[0].mainPhoto}}"/>
+					</div>
+				</div>
+				<div class="main-thumbnail" ng-click="goTo('admin/article/view/' + items[1]._id)">
+					<div class="main-thumbnail-hidder">
+						<img ng-src="{{items[1].mainPhoto}}"/>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 </div>

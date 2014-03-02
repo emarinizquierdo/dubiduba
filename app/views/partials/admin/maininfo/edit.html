@@ -1,0 +1,49 @@
+<div class="article">
+	<div ng-include="'partials/navbar.html'" class="header-wrapper"></div>
+
+	<div class="col-sm-12">
+		<h1>Información principal de página</h1>
+	</div>
+
+	<div class="col-sm-12">
+
+		<form class="form" name="form" ng-submit="(imagesLoading == 0) && saveArticle(maininfoData)" novalidate>
+
+			<div class="form-group">
+				<label>Título principal de la página</label>
+				<input type="text" name="name" class="form-control" ng-model="maininfoData.mainbannertitle" />    
+			</div>
+
+			<div class="form-group">
+				<label>Título secundario de la página</label>
+				<input type="text" name="name" class="form-control" ng-model="maininfoData.mainbannersubtitle" />    
+			</div>
+
+			<!--<div class="form-group">
+				<label>Descripción</label>
+				<textarea name="tinymce" data-ui-tinymce external-data="maininfoData.description" external-data-ready="tinyMCE" ui-tinymce-config="tinyConfiguration"></textarea>    
+			</div>-->
+
+			<div class="form-group">
+				<label>Enlace facebook</label>
+				<input type="text" name="name" class="form-control" ng-model="maininfoData.facebooklink" />    
+			</div>
+
+			<div class="form-group">
+				<label>Enlace twitter</label>
+				<input type="text" name="name" class="form-control" ng-model="maininfoData.twitterlink" />    
+			</div>
+
+			<div class="form-group">
+				<label>Imágenes</label>
+				<div image-uploader ></div>
+			</div>
+
+			<button class="btn btn-lg btn-primary" type="submit" ng-class="{disabled: (imagesLoading > 0)}">Guardar cambios</button>
+			<button class="btn btn-lg btn-primary" ng-click="goTo('admin/article')">Cancelar</button>
+
+		</form>
+
+		<p class="help-block">{{ errors.other }}</p>
+	</div>
+</div>

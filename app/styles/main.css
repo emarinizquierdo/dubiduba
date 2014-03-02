@@ -2,9 +2,14 @@
 body {
   padding-top: 20px;
   padding-bottom: 20px;
-  background: #F8F8F8 url('../images/bg-pattern.gif');
+  background: #F8F8F8 url('/images/bg-pattern.gif');
   color: #484d43;
   font: normal 12px/150% Verdana, Arial, sans-serif;
+}
+
+.copse-font {
+  font-family: 'Copse', serif;
+  font-size: 13px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -59,6 +64,45 @@ body {
 
 .border-dotted {
   border: 1px dashed #C27C86;
+}
+
+.border-bottom-dotted {
+  border-bottom: 1px dashed #C27C86;
+}
+
+.main-banners-block {
+  margin-bottom:10px;
+}
+
+.main-message-block {
+  margin-top: 100px;
+  margin-bottom:50px;
+  height: 100px;
+}
+
+.main-message-block .main-banner-title {
+  text-align: center;
+  font-size: 31px;
+  line-height: 31px;
+  margin-bottom: 20px;
+}
+
+.main-message-block .main-banner-subtitle {
+  text-align: center;
+  font-size: 26px;
+  line-height: 26px;
+  margin-bottom: 20px;
+}
+
+.main-small-images-block {
+  margin-bottom:10px;
+}
+
+.main-small-images-block .header {
+  border-bottom: 1px dashed #C27C86;
+  text-align: center;
+  font-size: 15px;
+  margin-bottom:10px;
 }
 
 /* Custom page footer */
@@ -142,6 +186,7 @@ body {
   margin-left: 20px;
 }
 
+
 .main-thumbnail {
   position: relative;
   background: url('/images/sprite-product.png') no-repeat 0 0;
@@ -149,18 +194,27 @@ body {
   width: 220px;
   padding: 11px 15px 20px;
   overflow: hidden;
+  float: left;
+  margin: 3px;
+  cursor: pointer;
 }
 
-.main-thumbnail img {
+.main-thumbnail .main-thumbnail-hidder {
+  overflow: hidden;
   width: 191px;
-  position: absolute;
-  top: 10px;
+  height: 142px;
+}
+
+.main-thumbnail .main-thumbnail-hidder img {
+  width: 191px;
+  position: relative;
+  top: -2px;
 }
 
 /* Customize container */
 @media (min-width: 768px) {
   .container {
-    max-width: 920px;
+    max-width: 970px;
   }
 }
 .container-narrow > hr {

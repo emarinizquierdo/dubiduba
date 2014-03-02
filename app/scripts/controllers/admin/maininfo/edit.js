@@ -1,29 +1,16 @@
 'use strict';
 
 angular.module('dubidubaApp')
-.controller('AdminArticleEditCtrl', ['$scope', '$http', '$routeParams', '$location', 'Item', function ($scope, $http, $routeParams, $location, Item) {
+.controller('AdminMaininfoEditCtrl', ['$scope', '$http', '$routeParams', '$location', 'Maininfo', function ($scope, $http, $routeParams, $location, Maininfo) {
 	
 	$scope.errors = {};
-    $scope.articleData = {}
+    $scope.maininfoData = {}
     $scope.imagesLoading = 0;
     $scope.tinyMCE = false;
-    
-    $scope.sizes = [
-        {   name : 'Talla estándar',
-            value : 0
-        },
-        {   name : 'Dimensiones',
-            value : 1
-        },
-        {   name : 'Otras tallas',
-            value : 2
-        }
-    ];
-
+   
     function _Init(){
-        $scope.imagesToLoad = $scope.articleData.photos;
+        $scope.imagesToLoad = $scope.maininfoData.photos;
         $scope.imagesToLoad[$scope.imagesToLoad.length] = {loading : false};
-        $scope.articleData.sizeSelected = $scope.sizes[$scope.articleData.sizeSelected.value];
         $scope.tinyMCE = true;
     }
 
@@ -44,15 +31,15 @@ angular.module('dubidubaApp')
         }
 
         if($routeParams.id){
-            Item.update(p_data, _OnSuccess, _OnError);
+            Maininfo.update(p_data, _OnSuccess, _OnError);
         }else{
-            Item.create(p_data, _OnSuccess, _OnError); 
+            Maininfo.create(p_data, _OnSuccess, _OnError); 
         }
         
     }
 
     function _OnSuccess(){
-    	$location.path("/admin/article");
+    	$location.path("/admin/maininfo");
     }
 
     function _OnError( err ){
@@ -60,8 +47,8 @@ angular.module('dubidubaApp')
     }
 
     if($routeParams.id){
-        $http.get('/api/item/' + $routeParams.id).success(function(article) {
-        $scope.articleData = article;
+        $http.get('/api/maininfo/' + $routeParams.id).success(function(maininfo) {
+        $scope.maininfoData = maininfo;
           _Init();
         }).error(function(error){
             

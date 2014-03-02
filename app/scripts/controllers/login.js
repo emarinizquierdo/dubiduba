@@ -15,10 +15,7 @@ angular.module('dubidubaApp')
         })
         .then( function( p_user ) {
           if(p_user.role == 'admin'){
-            /*OAuth.redirect('flickr', {'cache' : true }, "/#/admin");
-            OAuth.callback('undefined', function(err, result) {
-              debugger;
-            });*/
+            $location.path("/admin");
           }
         })
         .catch( function(err) {
