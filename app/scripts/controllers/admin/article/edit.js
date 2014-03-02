@@ -6,8 +6,8 @@ angular.module('dubidubaApp')
 	$scope.errors = {};
     $scope.articleData = {}
     $scope.imagesLoading = 0;
-    $scope.imagesToLoad;
-
+    $scope.tinyMCE = false;
+    
     $scope.sizes = [
         {   name : 'Talla estándar',
             value : 0
@@ -24,6 +24,7 @@ angular.module('dubidubaApp')
         $scope.imagesToLoad = $scope.articleData.photos;
         $scope.imagesToLoad[$scope.imagesToLoad.length] = {loading : false};
         $scope.articleData.sizeSelected = $scope.sizes[$scope.articleData.sizeSelected.value];
+        $scope.tinyMCE = true;
     }
 
     $scope.goTo = function( p_route ){
@@ -41,7 +42,12 @@ angular.module('dubidubaApp')
             }
         }
 
-        Item.update(p_data, _OnSuccess, _OnError);
+        if($routeParams.id){
+            Item.update(p_data, _OnSuccess, _OnError);
+        }else{
+            Item.create(p_data, _OnSuccess, _OnError); 
+        }
+        
     }
 
     function _OnSuccess(){
@@ -52,10 +58,16 @@ angular.module('dubidubaApp')
     	 $scope.errors.other = err.message;
     }
 
-    $http.get('/api/item/' + $routeParams.id).success(function(article) {
-      $scope.articleData = article;
-      _Init();
-    }).error(function(error){
-    	
-    });
+    if($routeParams.id){
+        $http.get('/api/item/' + $routeParams.id).success(function(article) {
+        $scope.articleData = article;
+          _Init();
+        }).error(function(error){
+            
+        });
+    }else{
+        $scope.imagesToLoad =[];
+        $scope.imagesToLoad[0] = {loading : false};
+    }
+
 }]);

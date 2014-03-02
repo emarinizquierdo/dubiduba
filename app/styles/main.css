@@ -46,6 +46,18 @@ body {
   border-style: solid;
 }
 
+.admin-price {
+  padding: 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 1px dashed #ccc;
+  border-width: 1px 0;
+}
+
+.admin-label {
+  margin-right: 5px;
+}
+
 .img-to-load {
   position: relative;
   width: 50px;
@@ -90,10 +102,60 @@ body {
   font-size: 18px;
 }
 
+
+/* Text Angular */
+.ta-btn-group{
+  margin: 0.2em;
+  text-align: right;
+  overflow: hidden;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border: 1px rgb(196, 196, 196);
+  display: inline-block;
+}
+
+.ta-btn-default{
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.2em 0.4em;
+  margin-left: 0em;
+  background-color: gray;
+  color: white;
+  font-size: 14px;
+  background-position: initial initial;
+  background-repeat: initial initial;
+  border: none;
+}
+
+.ta-form-control{
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  padding: 4px;
+  background-color: white;
+  border: 1px solid rgba(2, 2, 2, 0.0980392);
+  resize: both;
+  overflow-y: auto;
+  text-align: left;
+  background-position: initial initial;
+  background-repeat: initial initial;
+  min-height: 300px;
+}
+
+.focussed .ta-form-control{
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+
 /* Customize container */
 @media (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 920px;
   }
 }
 .container-narrow > hr {
@@ -102,7 +164,6 @@ body {
 
 /* Main marketing message and sign up button */
 .jumbotron {
-  text-align: center;
   border-bottom: 1px solid #e5e5e5;
 }
 .jumbotron .btn {

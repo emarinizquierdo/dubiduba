@@ -5,21 +5,18 @@ angular.module('dubidubaApp')
     	
     	$scope.errors = {};
 	    $scope.articleData = {}
-	    
-	  	$scope.newArticle = function(p_data){
-	        Item.create(p_data, _OnSuccess, _OnError);
-	    }
-
-	    function _OnSuccess(){
-	    	$location.path("/admin/article");
-	    }
-
-	    function _OnError( err ){
-	    	 $scope.errors.other = err.message;
-	    }
+	    $scope.mainPhoto;
 
 	    $http.get('/api/item/' + $routeParams.id).success(function(article) {
-	      $scope.articleData = article;
+	      	$scope.articleData = article;
+	      	if($scope.articleData.photos[0]){
+	    		$scope.mainPhoto = "http://farm" 
+                + $scope.articleData.photos[0].photo.farm 
+                + ".staticflickr.com/" 
+                + $scope.articleData.photos[0].photo.server + "/" 
+                + $scope.articleData.photos[0].photo.id + "_" 
+                + $scope.articleData.photos[0].photo.secret + "_z.jpg";
+        	}
 	    }).error(function(error){
 	    	
 	    });

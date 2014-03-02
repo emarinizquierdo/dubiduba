@@ -6,7 +6,8 @@ angular.module('dubidubaApp', [
   'ngSanitize',
   'ngRoute',
   'angularFileUpload',
-  'bootstrap-tagsinput'
+  'bootstrap-tagsinput',
+  'ui.tinymce'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
@@ -35,13 +36,13 @@ angular.module('dubidubaApp', [
         templateUrl: 'partials/admin/article',
         controller: 'AdminArticleCtrl'
       })
-      .when('/admin/article/new', {
-        templateUrl: 'partials/admin/article/new',
-        controller: 'AdminArticleNewCtrl'
-      })
       .when('/admin/article/view/:id', {
         templateUrl: 'partials/admin/article/view',
         controller: 'AdminArticleViewCtrl'
+      })
+      .when('/admin/article/new', {
+        templateUrl: 'partials/admin/article/edit',
+        controller: 'AdminArticleEditCtrl'
       })
       .when('/admin/article/edit/:id', {
         templateUrl: 'partials/admin/article/edit',
@@ -78,4 +79,6 @@ angular.module('dubidubaApp', [
         $location.path('/login');
       }
     });
+
+    
   });

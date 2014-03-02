@@ -2,7 +2,7 @@
 	<div ng-include="'partials/navbar.html'"></div>
 
 	<div class="col-sm-12">
-		<h1>Nuevo artículo</h1>
+		<h1>{{articleData.name || 'Nuevo artículo'}}</h1>
 	</div>
 
 	<div class="col-sm-12">
@@ -16,7 +16,7 @@
 
 			<div class="form-group">
 				<label>Descripción</label>
-				<textarea type="text" name="description" class="form-control" ng-model="articleData.description" />    
+				<textarea name="tinymce" data-ui-tinymce external-data="articleData.description" external-data-ready="tinyMCE" ui-tinymce-config="tinyConfiguration"></textarea>			    
 			</div>
 
 			<div class="form-group">

@@ -1,16 +1,45 @@
 <div class="article">
 	<div ng-include="'partials/navbar.html'"></div>
 
-	<div class="col-sm-12">
-	    <h1>{{articleData.name}}</h1>
-	  </div>
-	  <div class="col-sm-12">
-	    <label>Descripción</label><br/>
-	    {{articleData.description}}<br/>
+		<div>
+		    <h1>{{articleData.name}}</h1>
+		</div>
+	
+		<div class="row">
+			<div class="col-md-4">
+				<div class="admin-price">
+					<label>Precio</label> {{articleData.price}} €
+				</div>
 
-	    <label>Precio</label><br/>
-	    {{articleData.price}}<br/>
+				<div >
+					<label>Descripción</label><br/>
+					<div ng-bind-html="articleData.description"</div>
+				</div>
 
-	  </div>
+				<div >
+					<label>Talla</label><br/>
+					<div ng-switch on="articleData.sizeSelected.value">
+						<div ng-switch-when="0">
+							{{articleData.size.standar}}
+						</div>
+						<div ng-switch-when="1">
+							<label>Ancho</label> {{articleData.size.width}} cm x <label>Alto</label> {{articleData.size.height}} cm
+						</div>
+						<div ng-switch-when="2">
+							{{articleData.size.other}}
+						</div>
+					</div>
+				</div>
+
+				<div>
+					<span ng-repeat="label in articleData.tags" class="admin-label label label-primary">{{label}}</span>
+				</div>
+					
+			</div>
+				<div class="col-md-8">
+					<img class="img-thumbnail img-responsive" ng-src="{{mainPhoto}}"/>
+				</div>
+		</div>
+
 	</div>
 </div>
