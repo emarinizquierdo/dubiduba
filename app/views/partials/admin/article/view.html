@@ -1,19 +1,19 @@
 <div class="article">
-	<div ng-include="'partials/navbar.html'"></div>
+	<div ng-include="'partials/navbar.html'" class="header-wrapper"></div>
 
 		<div>
 		    <h1>{{articleData.name}}</h1>
 		</div>
 	
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-md-6">
 				<div class="admin-price">
 					<label>Precio</label> {{articleData.price}} €
 				</div>
 
 				<div >
 					<label>Descripción</label><br/>
-					<div ng-bind-html="articleData.description"</div>
+					<div ng-bind-html="articleData.description"></div>
 				</div>
 
 				<div >
@@ -36,7 +36,7 @@
 				</div>
 					
 			</div>
-				<div class="col-md-8">
+				<div class="col-md-6">
 					<img class="img-thumbnail img-responsive" ng-src="{{mainPhoto}}"/>
 				</div>
 		</div>

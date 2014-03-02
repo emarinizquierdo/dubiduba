@@ -1,5 +1,5 @@
 <div class="header" ng-controller="NavbarCtrl">
-  <ul class="nav nav-pills pull-right">
+  <ul class="nav nav-pills pull-right navbar-menu">
     <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}" ng-show="item.link != '/admin' || (isAdmin())">
         <a ng-href="{{item.link}}">{{item.title}}</a>
     </li>

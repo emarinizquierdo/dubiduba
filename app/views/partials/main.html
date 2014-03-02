@@ -1,20 +1,17 @@
-<div ng-include="'partials/navbar'" class="navbar"></div>
+<div class="shop">
+	<div ng-include="'partials/navbar'" class="header-wrapper"></div>
 
-<div class="jumbotron">
-  <h1> Bienvenido a Dubi-Duba, <span ng-show="currentUser">{{ currentUser.name }}</span>!</h1>
-  <p class="lead">
-    <img src="images/dubiduba.png"/>
-    Pronto podrás disfrutar de nuestros artículos.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">:-)</a></p>
-</div>
 
-<div>
-<div ng-repeat="item in items">
-  {{item.name}}
-  {{item.description}}
-</div>
-</div>
-<div class="footer">
-  <p>dubi-duba team</p>
+	<div class="border-dotted">
+		<img class="img-responsive" src="images/5126c1c747cdf45d49d9960f67a067c6c9138a79.jpg"/>
+	</div>
+	  
+
+
+
+	<div ng-repeat="item in items">
+	  {{item.name}}
+	  {{item.description}}
+	</div>
+
 </div>
