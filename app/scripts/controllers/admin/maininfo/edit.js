@@ -30,7 +30,7 @@ angular.module('dubidubaApp')
             p_data.photos = $scope.imagesToLoad;
         }
 
-        if($routeParams.id){
+        if($routeParams.id || p_data._id){
             Maininfo.update(p_data, _OnSuccess, _OnError);
         }else{
             Maininfo.create(p_data, _OnSuccess, _OnError); 
