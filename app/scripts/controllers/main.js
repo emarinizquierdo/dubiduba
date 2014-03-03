@@ -27,8 +27,8 @@ angular.module('dubidubaApp')
     });
 
     $http.get('/api/maininfo').success(function(maininfo) {
-     	$scope.maininfo = maininfo[0];
-      	if($scope.maininfo.photos[0]){
+     	$scope.maininfo = maininfo[0] || {};
+      	if($scope.maininfo && $scope.maininfo.photos[0]){
     		$scope.maininfo.mainPhoto = "http://farm" 
             + $scope.maininfo.photos[0].photo.farm 
             + ".staticflickr.com/" 

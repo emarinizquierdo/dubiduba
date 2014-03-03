@@ -44,9 +44,17 @@ angular.module('dubidubaApp', [
         templateUrl: 'partials/admin/article/edit',
         controller: 'AdminArticleEditCtrl'
       })
+      .when('/admin/article/edit/', {
+        templateUrl: 'partials/admin/article/edit',
+        controller: 'AdminArticleEditCtrl'
+      })
       .when('/admin/article/edit/:id', {
         templateUrl: 'partials/admin/article/edit',
         controller: 'AdminArticleEditCtrl'
+      })
+      .when('/admin/maininfo/edit/', {
+        templateUrl: 'partials/admin/maininfo/edit',
+        controller: 'AdminMaininfoEditCtrl'
       })
       .when('/admin/maininfo/edit/:id', {
         templateUrl: 'partials/admin/maininfo/edit',

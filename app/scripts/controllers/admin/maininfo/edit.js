@@ -54,8 +54,18 @@ angular.module('dubidubaApp')
             
         });
     }else{
-        $scope.imagesToLoad =[];
-        $scope.imagesToLoad[0] = {loading : false};
+        $http.get('/api/maininfo').success(function(maininfo) {
+            $scope.maininfoData = maininfo[0];          
+            if($scope.maininfoData){
+                _Init();
+            }else{
+                $scope.imagesToLoad =[];
+                $scope.imagesToLoad[0] = {loading : false};
+            }
+        }).error(function(error){
+            
+        });
+        
     }
 
 }]);
