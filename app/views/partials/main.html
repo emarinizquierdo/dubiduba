@@ -3,7 +3,11 @@
 
 
 	<div class="main-banners-block border-dotted">
-		<img class="img-responsive" ng-src="{{maininfo.mainPhoto}}"/>
+		<carousel interval="myInterval">
+	      <slide ng-repeat="slide in maininfo.mainPhoto">
+	        <img class="img-responsive" ng-src="{{slide}}"/>
+	      </slide>
+	    </carousel>		
 	</div>
 
 	<div class="main-message-block">
@@ -15,15 +19,19 @@
 			<div class="header favourites-header copse-font">
 				Nuestros favoritos
 			</div>
-			<div class="favourites-body">
-				<div class="main-thumbnail" ng-click="goTo('admin/article/view/' + items[0]._id)">
-					<div class="main-thumbnail-hidder">
-						<img ng-src="{{items[0].mainPhoto}}"/>
+			<div class="favourites-body row">
+				<div class="col-md-6">
+					<div class="main-thumbnail" ng-click="goTo('admin/article/view/' + items[0]._id)">
+						<div class="main-thumbnail-hidder">
+							<img ng-src="{{items[0].mainPhoto}}"/>
+						</div>
 					</div>
 				</div>
-				<div class="main-thumbnail" ng-click="goTo('admin/article/view/' + items[1]._id)">
-					<div class="main-thumbnail-hidder">
-						<img ng-src="{{items[1].mainPhoto}}"/>
+				<div class="col-md-6">
+					<div class="main-thumbnail" ng-click="goTo('admin/article/view/' + items[1]._id)">
+						<div class="main-thumbnail-hidder">
+							<img ng-src="{{items[1].mainPhoto}}"/>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -32,15 +40,19 @@
 			<div class="header newest-header copse-font">
 				Últimas novedades
 			</div>
-			<div class="newest-body">
-				<div class="main-thumbnail" ng-click="goTo('admin/article/view/' + items[0]._id)">
-					<div class="main-thumbnail-hidder" >
-						<img ng-src="{{items[0].mainPhoto}}"/>
+			<div class="newest-body row">
+				<div class="col-md-6">
+					<div class="main-thumbnail" ng-click="goTo('admin/article/view/' + items[0]._id)">
+						<div class="main-thumbnail-hidder" >
+							<img ng-src="{{items[0].mainPhoto}}"/>
+						</div>
 					</div>
 				</div>
-				<div class="main-thumbnail" ng-click="goTo('admin/article/view/' + items[1]._id)">
-					<div class="main-thumbnail-hidder">
-						<img ng-src="{{items[1].mainPhoto}}"/>
+				<div class="col-md-6">
+					<div class="main-thumbnail" ng-click="goTo('admin/article/view/' + items[1]._id)">
+						<div class="main-thumbnail-hidder">
+							<img ng-src="{{items[1].mainPhoto}}"/>
+						</div>
 					</div>
 				</div>
 			</div>

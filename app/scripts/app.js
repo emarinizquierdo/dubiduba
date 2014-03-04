@@ -7,7 +7,8 @@ angular.module('dubidubaApp', [
   'ngRoute',
   'angularFileUpload',
   'bootstrap-tagsinput',
-  'ui.tinymce'
+  'ui.tinymce',
+  'ui.bootstrap'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
