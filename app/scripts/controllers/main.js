@@ -4,7 +4,7 @@ angular.module('dubidubaApp')
   .controller('MainCtrl', ['$scope', '$location', '$http', function ($scope, $location, $http) {
     
   	$scope.items = [];
-$scope.myInterval = 5000;
+    $scope.carouselInterval = 5000;
 
   	$scope.goTo = function( p_route ){
     	$location.path(p_route);
