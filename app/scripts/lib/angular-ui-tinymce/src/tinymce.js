@@ -32,7 +32,7 @@ angular.module('ui.tinymce', [])
         var expression, options, tinyInstance,
           updateView = function () {
             scope.externalData=elm.val();
-            if (!scope.$$phase) {
+            if (!scope.$$phase && !scope.$root.$$phase) {
               scope.$apply();
             }
           };

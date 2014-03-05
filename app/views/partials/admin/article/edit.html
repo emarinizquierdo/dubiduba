@@ -9,19 +9,33 @@
 
 		<form class="form" name="form" ng-submit="(imagesLoading == 0) && saveArticle(articleData)" novalidate>
 
+			
 			<div class="form-group">
 				<label>Nombre de artículo</label>
 				<input type="text" name="name" class="form-control" ng-model="articleData.name" />    
 			</div>
 
-			<div class="form-group">
-				<label>Descripción</label>
-				<textarea name="tinymce" data-ui-tinymce external-data="articleData.description" external-data-ready="tinyMCE" ui-tinymce-config="tinyConfiguration"></textarea>			    
+			<div class="checkbox">
+			    <label>
+			      <input ng-model="articleData.favourite" type="checkbox"> Marcar como favorito
+			    </label>
 			</div>
 
 			<div class="form-group">
-				<label>Precio</label>
-				<input type="text" name="price" class="form-control" ng-model="articleData.price" /> 
+				<div class="form-inline">
+					<div class="form-group">
+						<label>Precio</label>
+						<input type="text" name="price" class="form-control" ng-model="articleData.price" /> 
+					</div>
+					<div class="form-group">
+						<label>€</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label>Descripción</label>
+				<textarea name="tinymce" data-ui-tinymce external-data="articleData.description" external-data-ready="tinyMCE" ui-tinymce-config="tinyConfiguration"></textarea>			    
 			</div>
 
 			<div class="form-group">
