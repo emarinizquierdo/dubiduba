@@ -7,58 +7,45 @@
 
 	<div class="col-sm-12">
 
-		<table class="article-table table table-hover">
-		  <thead>
-		    <tr>
-		      <td><b>Id</b></td>
-		      <td><b>Nombre</b></td>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <tr ng-repeat="category in categories">
-		      <td class="item-id" ng-click="goTo('admin/article/view/' + item._id)">{{category._id}}</td>
-		      <td>{{category.name}}</td>
-		      <td><span class="first-icon glyphicon glyphicon-pencil" ng-click="goTo('admin/article/edit/' + item._id)"></span><span style="color:#d9534f" class="second-icon glyphicon glyphicon-remove" ng-click="RemoveCategory(category._id)"></span></td>
-		    </tr>
-		  </tbody>
-		</table>
-		
-
-		<div>
-			<button class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Añadir Categoría</button>
-			<hr>
-			<div collapse="isCollapsed">
-				<form class="form" name="form" ng-submit="saveCategory(newCategory)" novalidate>
-				
-				<div class="form-group">
-					<label>Nombre de categoría</label>
-					<input type="text" name="name" class="form-control" ng-model="newCategory.name" />    
-				</div>
-
-				<button class="btn btn-lg btn-primary" type="submit" ng-class="{disabled: (newCategory.name == '' || newCategory.name == null)}">Guardar cambios</button>
-				<button class="btn btn-lg btn-primary" ng-click="goTo('admin')">Cancelar</button>
-
-			</form>
-			</div>
-		</div>
-
-
-		<ol ui-nested-sortable="" ng-model="list">
-  <li ng-repeat="item in list" ui-nested-sortable-item="">
-    <div ui-nested-sortable-handle>
-      {{item.title}}
-    </div>
-    <ol ui-nested-sortable="" ng-model="item.items">
-      <li ng-repeat="subItem in item.items" ui-nested-sortable-item="">
-        <div ui-nested-sortable-handle>
-          {{subItem.title}}
-        </div>
-      </li>
-    </ol>
-  </li>      
-</ol>
-
-
+		<ol ui-nested-sortable="" ng-model="categories.categories">
+		  <li ng-repeat="category in categories.categories" ui-nested-sortable-item="">
+		    <div ui-nested-sortable-handle>
+		    	<div>
+	      			<span class="anchor-icon first-icon glyphicon glyphicon-align-justify"></span><input type="text" name="name" placeholder="Nueva Categoría" data-nodrag class="form-control input-sm input-cleared" ng-model="category.name" ng-blur="saveCategories()" /></input>
+		      	</div>
+	      		<div class="options-icons">
+			      	<a class="pull-right btn btn-xs" data-nodrag ng-click="removeCategories(this)">
+			      		<span style="color:#d9534f" class="second-icon glyphicon glyphicon-remove" ></span>
+			      	</a>
+			      	<a class="pull-right btn btn-xs" data-nodrag ng-click="goTo('admin/article/edit/' + category._id)">
+			      		<span class="first-icon glyphicon glyphicon-plus" ng-click="newSubCategory(this)" ></span>
+			      	</a>
+			      	<a class="pull-right btn btn-xs" data-nodrag ng-hide="category.children.length == 0" ng-click="toggle(this)">
+			      		<span class="first-icon glyphicon glyphicon-chevron-down" ></span>
+			      	</a>
+			    </div>
+		    </div>
+		    <ol ui-nested-sortable="" ng-model="category.children">
+		      <li ng-repeat="subCategory in category.children" ui-nested-sortable-item="">
+		        <div ui-nested-sortable-handle>
+		        	<div>
+		          		<span class="anchor-icon first-icon glyphicon glyphicon-align-justify"></span><input type="text" name="name" placeholder="Nueva Categoría" data-nodrag class="form-control input-sm input-cleared" ng-model="subCategory.name" ng-blur="saveCategories()"/></input>
+		      		</div>
+		        	<div class="options-icons">
+		      			<a class="pull-right btn btn-xs" data-nodrag ng-click="removeCategories(this)">
+		      				<span style="color:#d9534f" class="second-icon glyphicon glyphicon-remove" ></span>
+		      			</a>
+		      		</div>
+		        </div>
+		      </li>
+		    </ol>
+		    <ol>
+		    <a class="pull-right btn btn-xs" data-nodrag ng-click="goTo('admin/article/edit/' + category._id)">
+		      		<span class="first-icon glyphicon glyphicon-plus" ng-click="newCategory()" ></span>
+			  	</a>
+			</ol>
+		  </li>      
+		</ol>
 
 		<p class="help-block">{{ errors.other }}</p>
 	</div>
