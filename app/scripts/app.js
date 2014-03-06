@@ -8,7 +8,8 @@ angular.module('dubidubaApp', [
   'angularFileUpload',
   'bootstrap-tagsinput',
   'ui.tinymce',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ui.nestedSortable'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider

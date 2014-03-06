@@ -42,6 +42,24 @@
 			</div>
 		</div>
 
+
+		<ol ui-nested-sortable="" ng-model="list">
+  <li ng-repeat="item in list" ui-nested-sortable-item="">
+    <div ui-nested-sortable-handle>
+      {{item.title}}
+    </div>
+    <ol ui-nested-sortable="" ng-model="item.items">
+      <li ng-repeat="subItem in item.items" ui-nested-sortable-item="">
+        <div ui-nested-sortable-handle>
+          {{subItem.title}}
+        </div>
+      </li>
+    </ol>
+  </li>      
+</ol>
+
+
+
 		<p class="help-block">{{ errors.other }}</p>
 	</div>
 </div>
