@@ -213,25 +213,86 @@ body {
 .main-thumbnail {
   position: relative;
   background: url('/images/sprite-product.png') no-repeat 0 0;
-  height: 177px;
-  width: 220px;
-  padding: 11px 15px 20px;
+  height: 160px;
+  width: 196px;
+  padding: 9px 13px 20px 6px;
   overflow: hidden;
   float: left;
   margin: 3px;
   cursor: pointer;
+  background-size: 435%;
 }
 
 .main-thumbnail .main-thumbnail-hidder {
   overflow: hidden;
-  width: 191px;
-  height: 142px;
+  width: 183px;
+  height: 132px;
 }
 
 .main-thumbnail .main-thumbnail-hidder img {
   width: 191px;
   position: relative;
   top: -2px;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 40%;
+  left: 15px;
+  width: 30px;
+  height: 30px;
+  font-size: 60px;
+  font-weight: 100;
+  line-height: 30px;
+  text-align: center;
+  background: #222222;
+  border-radius: 30px;
+  opacity: 0.1;
+  filter: alpha(opacity=10);
+  cursor: pointer;
+ }
+
+.carousel-control .icon-prev {
+  margin-top: -17px;
+}
+
+.carousel-control .icon-next {
+  margin-top: -17px;
+  right: 0px;
+}
+
+.carousel-control.right {
+    right: 15px;
+    left: auto;
+}
+
+.carousel-control.left {
+    left: 15px;
+    right: auto;
+}
+
+.carousel-control:hover,
+.carousel-control:focus {
+    color: #ffffff;
+    text-decoration: none;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.favourites-body .carousel ol,
+.newest-body .carousel ol {
+  bottom: -50px;
+}
+
+.favourites-body .carousel-indicators li.active,
+.newest-body .carousel-indicators li.active {
+  background-color: #C27C86;
+  border: none;
+}
+
+.favourites-body .carousel-indicators li,
+.newest-body .carousel-indicators li {
+  border: 1px solid #C27C86;
 }
 
 /* Customize container */

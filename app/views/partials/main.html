@@ -24,14 +24,14 @@
 				<carousel interval="carouselInterval">
 					<slide ng-repeat="item in groupedItems">
 						<div class="col-md-6">
-							<div class="main-thumbnail" ng-click="goTo('admin/article/view/' + item[0]._id)">
+							<div class="main-thumbnail" class="img-responsive" ng-click="goTo('admin/article/view/' + item[0]._id)">
 								<div class="main-thumbnail-hidder">
 									<img ng-src="{{item[0].mainPhoto}}"/>
 								</div>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<div class="main-thumbnail" ng-click="goTo('admin/article/view/' + item[1]._id)">
+							<div class="main-thumbnail" class="img-responsive" ng-click="goTo('admin/article/view/' + item[1]._id)">
 								<div class="main-thumbnail-hidder">
 									<img ng-src="{{item[1].mainPhoto}}"/>
 								</div>
