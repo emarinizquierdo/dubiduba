@@ -2,7 +2,7 @@
 body {
   padding-top: 20px;
   padding-bottom: 20px;
-  background: #F8F8F8 url('/images/bg-pattern.gif');
+  //background: #F8F8F8 url('/images/bg-pattern.gif');
   color: #484d43;
   font: normal 12px/150% Verdana, Arial, sans-serif;
 }
