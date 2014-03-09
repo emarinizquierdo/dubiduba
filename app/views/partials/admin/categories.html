@@ -7,11 +7,11 @@
 
 	<div class="col-sm-12">
 
-		<ol ui-nested-sortable="" ng-model="categories.categories">
-		  <li ng-repeat="category in categories.categories" ui-nested-sortable-item="">
+		<ol ui-nested-sortable="nestedOptions" ng-model="categories.categories" class="nested-categories-list">
+		  <li ng-repeat="category in categories.categories" ui-nested-sortable-item >
 		    <div ui-nested-sortable-handle>
 		    	<div>
-	      			<span class="anchor-icon first-icon glyphicon glyphicon-align-justify"></span><input type="text" name="name" placeholder="Nueva Categoría" data-nodrag class="form-control input-sm input-cleared" ng-model="category.name" ng-blur="saveCategories()" /></input>
+	      			<span class="anchor-icon first-icon glyphicon glyphicon-align-justify"></span><input type="text" name="name" placeholder="Nueva Categoría" data-nodrag class="form-control input-sm input-cleared" ng-model="category.name" ng-keypress="catchEnter($event)" ng-blur="saveCategories()" /></input>
 		      	</div>
 	      		<div class="options-icons">
 			      	<a class="pull-right btn btn-xs" data-nodrag ng-click="removeCategories(this)">
@@ -25,11 +25,11 @@
 			      	</a>
 			    </div>
 		    </div>
-		    <ol ui-nested-sortable="" ng-model="category.children">
-		      <li ng-repeat="subCategory in category.children" ui-nested-sortable-item="">
+		    <ol ui-nested-sortable="nestedOptions" ng-model="category.children">
+		      <li ng-repeat="subCategory in category.children" ui-nested-sortable-item>
 		        <div ui-nested-sortable-handle>
 		        	<div>
-		          		<span class="anchor-icon first-icon glyphicon glyphicon-align-justify"></span><input type="text" name="name" placeholder="Nueva Categoría" data-nodrag class="form-control input-sm input-cleared" ng-model="subCategory.name" ng-blur="saveCategories()"/></input>
+		          		<span class="anchor-icon first-icon glyphicon glyphicon-align-justify"></span><input type="text" name="name" placeholder="Nueva Categoría" data-nodrag class="form-control input-sm input-cleared" ng-keypress="catchEnter($event)" ng-model="subCategory.name" ng-blur="saveCategories()"/></input>
 		      		</div>
 		        	<div class="options-icons">
 		      			<a class="pull-right btn btn-xs" data-nodrag ng-click="removeCategories(this)">
@@ -39,14 +39,14 @@
 		        </div>
 		      </li>
 		    </ol>
-		    <ol>
-		    <a class="pull-right btn btn-xs" data-nodrag ng-click="goTo('admin/article/edit/' + category._id)">
-		      		<span class="first-icon glyphicon glyphicon-plus" ng-click="newCategory()" ></span>
-			  	</a>
-			</ol>
+		    
 		  </li>      
 		</ol>
-
+		<div>
+		    <a class="btn btn-xs" data-nodrag ng-click="newCategory()">
+		      	<span class="first-icon glyphicon glyphicon-plus" ></span> Nueva Categoría
+			</a>
+		</div>
 		<p class="help-block">{{ errors.other }}</p>
 	</div>
 </div>

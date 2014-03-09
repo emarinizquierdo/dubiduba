@@ -311,10 +311,15 @@ body {
   margin: 0px;
   padding: 0px;
   list-style: none;
+  padding-right: 20px;
+  max-height: 398px;
+  overflow-y:auto;
 }
+
 .nestedSortable-sublist {
     padding-left: 30px;
 }
+
 .nestedSortable-item, .nestedSortable-placeholder {
   display: block;
   position: relative;

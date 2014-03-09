@@ -8,10 +8,12 @@ angular.module('dubidubaApp')
     $scope.categories = {};
   	$scope.isCollapsed = true;  
 
-  	$scope.saveCategories = function(){
+  	$scope.saveCategories = function( p_removeId ){
 
         if(_existCategories){
-            Category.update($scope.categories, _OnSuccess, _OnError); 
+            var _updateData = $scope.categories;
+            _updateData.removeId = p_removeId;
+            Category.update( _updateData, _OnSuccess, _OnError); 
         }else{
             Category.create($scope.categories, _OnSuccess, _OnError); 
         }
@@ -43,6 +45,21 @@ angular.module('dubidubaApp')
         });
     }
 
+    $scope.nestedOptions = {
+        orderChanged: function(scope, sourceItem, sourceIndex, destIndex) {
+            $scope.saveCategories();
+        },
+        itemMoved: function(sourceScope, modelData, sourceIndex, destScope, destIndex) {
+            $scope.saveCategories();
+        }
+    };
+
+    $scope.catchEnter = function(ev) {
+        if (ev.which==13){
+            $scope.saveCategories();
+        }
+    }
+
     $scope.toggle = function(scope) {
       scope.collapsed = !scope.collapsed;
     };
@@ -70,7 +87,7 @@ angular.module('dubidubaApp')
       if (index > -1) {
         scope.sortableModelValue.splice(index, 1)[0];
       }
-      saveCategories();
+      $scope.saveCategories( scope.category.id );
     };
 
     _LoadCategories();
