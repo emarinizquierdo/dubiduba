@@ -21,7 +21,7 @@
 				Nuestros favoritos
 			</div>
 			<div class="favourites-body">
-				<carousel interval="carouselInterval">
+				<carousel>
 					<slide ng-repeat="item in groupedItems">
 						<div class="col-md-6">
 							<div class="main-thumbnail" class="img-responsive" ng-click="goTo('admin/article/view/' + item[0]._id)">
@@ -46,7 +46,7 @@
 				Últimas novedades
 			</div>
 			<div class="newest-body">
-				<carousel interval="carouselInterval">
+				<carousel>
 					<slide ng-repeat="item in groupedItems">
 						<div class="col-md-6">
 							<div class="main-thumbnail" ng-click="goTo('admin/article/view/' + item[0]._id)">
@@ -68,4 +68,35 @@
 		</div>
 	</div>
 
+
+	<div class="main-footer">
+  		<div class="socialLinks">
+		    <ul>
+				<li class="facebook"><a href="{{maininfo.facebooklink}}" title="Dubi Duba en facebook" class="blank"><img src="/images/facebook.png" alt="Únete a nosotros en Facebook"><span class="main-footer-facebook">Únete a nosotros en Facebook!!</span></a></li>
+		    </ul>
+		</div>
+<!--
+	  	<div class="footerNav">
+		    <div class="inner">
+
+		      	<div class="col">
+		        	<h3><cufon class="cufon cufon-canvas" alt="Categories" style="width: 84px; height: 18px;"><canvas width="96" height="24" style="width: 96px; height: 24px; top: -5px; left: -1px;"></canvas><cufontext>Categories</cufontext></cufon></h3>
+		        	<ul>
+			    		<li>
+			    			<a href="/shop/accessories">Accessories</a>
+			    		</li>
+		    		</ul>
+		    	</div>
+
+		    	<div class="col">
+		        	<h3><cufon class="cufon cufon-canvas" alt="Information" style="width: 93px; height: 18px;"><canvas width="102" height="24" style="width: 102px; height: 24px; top: -5px; left: -1px;"></canvas><cufontext>Information</cufontext></cufon></h3>
+		        	<ul>
+		          		<li>
+		          			<a href="/about-us">About us</a>
+		          		</li>
+		        	</ul>
+		    	</div>
+		    </div>
+	  	</div>-->
+	</div>
 </div>
