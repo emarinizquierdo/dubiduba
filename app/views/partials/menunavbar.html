@@ -1,10 +1,16 @@
-<div class="header" ng-controller="NavbarCtrl">
-  <ul class="nav nav-pills pull-right navbar-menu">
-    <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}" ng-show="item.link != '/admin' || (isAdmin())">
-        <a ng-href="{{item.link}}">{{item.title}}</a>
-    </li>
-    <li ng-hide="currentUser" ng-class="{active: isActive('/login')}"><a href="/login">Login</a></li>
-    <li ng-hide="currentUser" ng-class="{active: isActive('/signup')}"><a href="/signup">Sign up</a></li>
-    <li ng-show="currentUser" ng-class="{active: isActive('/logout')}"><a href="" ng-click="logout()">Logout</a></li>
-  </ul>
-</div>
+<nav class="navbar main-menunavbar" role="navigation" ng-controller="MenunavbarCtrl">
+  <div class="container-fluid">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <ul class="nav navbar-nav navbar-right main-menu-ul">
+        <li><a href="#">Catálogo</a></li>
+        <li ng-repeat="category in categories.categories" ng-class="{'dropdown' : (category.children.lenght > 0) }">
+          <a href="#" ng-class="{'dropdown-toggle' : (category.children.lenght > 0) }" data-toggle="dropdown">{{category.name}}<b class="caret" ng-show="category.children"></b></a>
+          <ul class="dropdown-menu" ng-show="category.children">
+          	<li><a href="#">{{category.name}}</a></li>
+          	<li class="divider"></li>
+            <li ng-repeat="subcategory in category.children"><a href="#">{{subcategory.name}}</a></li>
+          </ul>
+        </li>
+      </ul>
+  </div><!-- /.container-fluid -->
+</nav>

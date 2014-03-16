@@ -1,30 +1,24 @@
 'use strict';
 
 angular.module('dubidubaApp')
-  .controller('MenunavbarCtrl', function ($scope, $location, Auth) {
+  .controller('MenunavbarCtrl', function ($scope, $location, $http) {
 
-    $scope.menu = [{
-      'title': 'Home',
-      'link': '/'
-    },
-    {
-      'title': 'Administración',
-      'link': '/admin'
-    }];
+    function _LoadCategories(){
+      $http.get('/api/category').success(function(p_data) {
+          if(p_data[0]){
+                $scope.categories = p_data[0];
+            }else{
+                $scope.categories.categories = [{
+                    id: new Date().getTime(),
+                    name: null,
+                    children: []
+                }];
+            }
+        }).error(function(error){
+            
+        });
+    }
 
-    $scope.hasSession = false;
-
-    $scope.logout = function() {
-      Auth.logout()
-      .then(function() {
-        $location.path('/login');
-      });
-    };
-    
-    $scope.isActive = function(route) {
-      return route === $location.path();
-    };
-
-    $scope.isAdmin = Auth.isAdminLoggedIn;
+    _LoadCategories();
 
   });
