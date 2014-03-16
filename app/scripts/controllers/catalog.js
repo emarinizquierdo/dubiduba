@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dubidubaApp')
-  .controller('CatalogCtrl', function ($scope, $http, $location) {
+  .controller('CatalogCtrl', function ($scope, $http, $location, $routeParams) {
     
     $scope.Items = [];
     $scope.categories = [];
@@ -36,9 +36,18 @@ angular.module('dubidubaApp')
     }
 
     function _LoadCatalog(){
-    	$http.get('/api/item').success(function(items) {  
-	      _ProcessItems(items);      
-	    });
+
+    	if($routeParams.id){
+            $http.get('/api/item/', { params : { category : $routeParams.id }}).success(function(items) {  
+	      		_ProcessItems(items);      
+	    	});
+        }else{
+            $http.get('/api/item').success(function(items) {  
+	      		_ProcessItems(items);      
+	    	});
+        }
+
+    	
     }
 
     function _LoadCategories(){

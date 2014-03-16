@@ -2,13 +2,14 @@
   <div class="container-fluid">
     <!-- Collect the nav links, forms, and other content for toggling -->
     <ul class="nav navbar-nav navbar-right main-menu-ul">
-        <li><a href="/catalog">Catálogo</a></li>
+        <li><a ng-click="goTo('/catalog')" href="">Catálogo</a></li>
         <li ng-repeat="category in categories.categories" ng-class="{'dropdown' : (category.children.lenght > 0) }">
-          <a href="#" ng-class="{'dropdown-toggle' : (category.children.lenght > 0) }" data-toggle="dropdown">{{category.name}}<b class="caret" ng-show="category.children"></b></a>
+          <a href="" ng-class="{'dropdown-toggle' : (category.children.lenght > 0) }" data-toggle="dropdown" ng-show="category.children">{{category.name}}<b class="caret" ng-show="category.children"></b></a>      
+          <a ng-click="goTo('/catalog/' + category.id)" href="" ng-class="{'dropdown-toggle' : (category.children.lenght > 0) }" data-toggle="dropdown" ng-hide="category.children">{{category.name}}<b class="caret" ng-show="category.children"></b></a>            
           <ul class="dropdown-menu" ng-show="category.children">
-          	<li><a href="#">{{category.name}}</a></li>
+          	<li><a ng-click="goTo('/catalog/' + category.id)" href="">{{category.name}}</a></li>
           	<li class="divider"></li>
-            <li ng-repeat="subcategory in category.children"><a href="#">{{subcategory.name}}</a></li>
+            <li ng-repeat="subcategory in category.children"><a ng-click="goTo('/catalog/' + subcategory.id)" href="">{{subcategory.name}}</a></li>
           </ul>
         </li>
       </ul>
