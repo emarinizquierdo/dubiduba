@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <!-- Collect the nav links, forms, and other content for toggling -->
     <ul class="nav navbar-nav navbar-right main-menu-ul">
-        <li><a href="#">Catálogo</a></li>
+        <li><a href="/catalog">Catálogo</a></li>
         <li ng-repeat="category in categories.categories" ng-class="{'dropdown' : (category.children.lenght > 0) }">
           <a href="#" ng-class="{'dropdown-toggle' : (category.children.lenght > 0) }" data-toggle="dropdown">{{category.name}}<b class="caret" ng-show="category.children"></b></a>
           <ul class="dropdown-menu" ng-show="category.children">

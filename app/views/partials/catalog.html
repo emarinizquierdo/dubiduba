@@ -1,0 +1,88 @@
+<div class="shop">
+	<div class="main-header">
+		<div ng-include="'partials/navbar'" class="header-wrapper"></div>
+		<div class="main-menu">
+			<div ng-include="'partials/menunavbar'" class="main-menu-wrapper"></div>
+		</div>
+	</div>
+
+	
+	<div class="row">
+		<div class="col-xs-6 col-md-2 left-navbar">
+
+			<h5>Categorías</h5>
+			<div ng-repeat="category in categories.categories">
+			<ul class="nav">
+				<li><input type="checkbox" ng-model="categoriesFilterValues" ng-true-value="{{category.id}}" ng-change="categoriesCheckChange(categoriesFilterValues, category.id)">{{category.name}}</li>
+				<li ng-repeat="subcategory in category.children"><input type="checkbox" ng-model="categoriesFilterValues" ng-true-value="{{subcategory.id}}" ng-change="categoriesCheckChange(categoriesFilterValues, subcategory.id)">{{subcategory.name}}</li>
+			</ul>
+			</div>
+			<h5>Precio</h5>
+			<ul class="nav">
+				<li><input type="checkbox"> menos de 5€</li>
+				<li><input type="checkbox"> entre 5€ y 20€</li>
+				<li><input type="checkbox"> más de 20€</li>
+			</ul>
+  		</div>
+ 		<div class="col-xs-12 col-md-10">
+		  	<div class="main-catalog">
+
+				<div class="row-fluid">      	
+			        <div id="portfolio" class="row-catalog">
+			        	<div ng-repeat="item in Items | categoriesFilter:categoriesFilterValues" class="item-wrapper" ng-click="goTo('admin/article/view/' + item._id)">
+			        		<div class="img-thumbnail ">
+			        			<img ng-src="{{item.mainPhoto}}" class="img-responsive">
+			        			<div class="item-description">
+			        				<div class="title">
+			        					{{item.name}}
+			        				</div>
+			        				<div class="price">
+			        					{{item.price}} €
+			        				</div>
+			        			</div>
+			        		</div>				        	
+						</div>
+					</div>
+				</div>
+			</div>
+  		</div>
+  		
+	</div>
+
+
+
+
+	
+
+
+	<div class="main-footer">
+  		<div class="socialLinks">
+		    <ul>
+				<li class="facebook"><a href="{{maininfo.facebooklink}}" title="Dubi Duba en facebook" class="blank"><img src="/images/facebook.png" alt="Únete a nosotros en Facebook"><span class="main-footer-facebook">Únete a nosotros en Facebook!!</span></a></li>
+		    </ul>
+		</div>
+<!--
+	  	<div class="footerNav">
+		    <div class="inner">
+
+		      	<div class="col">
+		        	<h3><cufon class="cufon cufon-canvas" alt="Categories" style="width: 84px; height: 18px;"><canvas width="96" height="24" style="width: 96px; height: 24px; top: -5px; left: -1px;"></canvas><cufontext>Categories</cufontext></cufon></h3>
+		        	<ul>
+			    		<li>
+			    			<a href="/shop/accessories">Accessories</a>
+			    		</li>
+		    		</ul>
+		    	</div>
+
+		    	<div class="col">
+		        	<h3><cufon class="cufon cufon-canvas" alt="Information" style="width: 93px; height: 18px;"><canvas width="102" height="24" style="width: 102px; height: 24px; top: -5px; left: -1px;"></canvas><cufontext>Information</cufontext></cufon></h3>
+		        	<ul>
+		          		<li>
+		          			<a href="/about-us">About us</a>
+		          		</li>
+		        	</ul>
+		    	</div>
+		    </div>
+	  	</div>-->
+	</div>
+</div>
