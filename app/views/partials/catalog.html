@@ -29,7 +29,7 @@
 
 				<div class="row-fluid">      	
 			        <div id="portfolio" class="row-catalog">
-			        	<div ng-repeat="item in Items | categoriesFilter:categoriesFilterValues" class="item-wrapper" ng-click="goTo('admin/article/view/' + item._id)">
+			        	<div ng-repeat="item in Items | categoriesFilter:categoriesFilterValues" class="item-wrapper" ng-click="goTo('article/' + item._id)">
 			        		<div class="img-thumbnail ">
 			        			<img ng-src="{{item.mainPhoto}}" class="img-responsive">
 			        			<div class="item-description">
