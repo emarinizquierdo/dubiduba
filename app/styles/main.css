@@ -157,7 +157,7 @@ body {
 
 .main-message-block .main-banner-title {
   text-align: center;
-  font-size: 31px;
+  font-size: 40px;
   font-family: 'Flamenco', cursive;
   line-height: 50px;
   margin-bottom: 20px;
@@ -178,7 +178,7 @@ body {
 .main-small-images-block .header {
   border-bottom: 1px dashed #C27C86;
   text-align: center;
-  font-size: 15px;
+  font-size: 17px;
   margin-bottom:10px;
   font-family: 'Flamenco', cursive;
 }
@@ -210,7 +210,7 @@ body {
 }
 
 .main-footer .socialLinks .facebook img {
-  width: 70px;
+  width: 40px;
   text-align: middle;
   padding-bottom: 10px;
 }
@@ -221,7 +221,7 @@ body {
 
 .main-footer-facebook {
   font-family: 'Flamenco', cursive;
-  font-size: 30px;
+  font-size: 24px;
   color: #333;
 }
 
@@ -435,6 +435,12 @@ body {
   font-weight: bold;
   text-align: right;
   margin-right: 12px;
+}
+
+.main-catalog .img-thumbnail{
+  -moz-box-shadow: 7px 7px 5px #C2C2C2;
+  -webkit-box-shadow: 7px 7px 5px #C2C2C2;
+  box-shadow: 7px 7px 5px #C2C2C2;
 }
 
 .left-navbar {
@@ -682,6 +688,21 @@ body {
     display: none;
   }
 
+  .main-message-block .main-banner-subtitle {
+    font-size: 17px;
+  }
+  
+  .main-message-block .main-banner-title {
+    font-size: 26px;
+  }
+
+  .main-footer .socialLinks .facebook img {
+    width: 26px;
+  }
+
+  .main-footer-facebook {
+    font-size: 16px;
+  }
 }
 
 /* Customize container */

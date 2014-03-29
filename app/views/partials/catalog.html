@@ -14,7 +14,6 @@
 			<div ng-repeat="category in categories.categories">
 			<ul class="nav">
 				<li><input type="checkbox" ng-model="categoriesFilterValues" ng-true-value="{{category.id}}" ng-change="categoriesCheckChange(categoriesFilterValues, category.id)">{{category.name}}</li>
-				<li ng-repeat="subcategory in category.children"><input type="checkbox" ng-model="categoriesFilterValues" ng-true-value="{{subcategory.id}}" ng-change="categoriesCheckChange(categoriesFilterValues, subcategory.id)">{{subcategory.name}}</li>
 			</ul>
 			</div>
 			<h5>Precio</h5>
