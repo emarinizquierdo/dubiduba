@@ -466,7 +466,7 @@ body {
 
 .main-catalog .item-wrapper .item-description {
   font-family: 'Flamenco', cursive;
-  margin-top: 10px;
+  margin: 10px 7px;
 }
 
 .main-catalog .item-wrapper .item-description .title {
