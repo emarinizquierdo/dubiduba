@@ -45,7 +45,7 @@ angular.module('dubidubaApp')
             p_data.photos = $scope.imagesToLoad;
         }
 
-        p_data.category = $scope.categorySelected.id;
+        p_data.category = $scope.categorySelected.id || null;
         p_data.subcategory = $scope.subcategorySelected;
 
         if($routeParams.id){
