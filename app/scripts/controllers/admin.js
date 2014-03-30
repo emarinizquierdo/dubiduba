@@ -7,7 +7,7 @@ angular.module('dubidubaApp')
 
 	$scope.tabs = [
 	    { title:"Artículos", url:"partials/admin/articleadmin.html" },
-	    { title:"Usuarios", url:"partials/admin/article.html", disable:true},
+	    { title:"Usuarios", url:"partials/admin/article.html", disabled:true},
 	    { title:"Portada", url:"partials/admin/maininfo/edit.html" },
   	];
 

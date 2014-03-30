@@ -2,63 +2,6 @@
 	<div ng-include="'partials/navbar.html'" class="header-wrapper"></div>
 </div>
 
-<!--
-<h4>Info principal</h4>
-<div class="jumbotron">
-	<table class="table">
-		<tbody>
-			<tr>
-				<td class="text-center"><a title="Información principal" href="/admin/maininfo/edit/{{maininfo._id}}" ><span class="glyphicon glyphicon-home"></span></a></td>
-				<td class="text-center"></td>
-				<td class="text-center"></td>
-				<td class="text-center"></td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-
-<h4>Artículos</h4>
-<div class="jumbotron">
-	<table class="table">
-		<tbody>
-			<tr>
-				<td class="text-center"><a title="Artículos" href="/admin/article" ><span class="glyphicon glyphicon-th"></span></a></td>
-				<td class="text-center"><a title="Categorías" href="/admin/categories" ><span class="glyphicon glyphicon-th-list"></span></a></td>
-				<td class="text-center"><a title="Stock" href="/admin/stock" ><span class="glyphicon glyphicon-list-alt"></span></a></td>
-				<td class="text-center"></td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-
-	<h4>Usuarios</h4>
-<div class="jumbotron">	
-	<table class="table">
-		<tbody>
-			<tr>
-				<td class="text-center"></td>
-				<td class="text-center"></td>
-				<td class="text-center"></td>
-				<td class="text-center"></td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-
-<h4>Ventas</h4>
-<div class="jumbotron">
-	<table class="table">
-		<tbody>
-			<tr>
-				<td class="text-center"></td>
-				<td class="text-center"></td>
-				<td class="text-center"></td>
-				<td class="text-center"></td>
-			</tr>
-		</tbody>
-	</table>
-</div>
--->
 <div class="admin-tabs">
   <tabset>
     <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
