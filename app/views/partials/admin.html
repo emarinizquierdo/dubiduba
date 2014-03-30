@@ -2,6 +2,7 @@
 	<div ng-include="'partials/navbar.html'" class="header-wrapper"></div>
 </div>
 
+<!--
 <h4>Info principal</h4>
 <div class="jumbotron">
 	<table class="table">
@@ -23,7 +24,7 @@
 			<tr>
 				<td class="text-center"><a title="Artículos" href="/admin/article" ><span class="glyphicon glyphicon-th"></span></a></td>
 				<td class="text-center"><a title="Categorías" href="/admin/categories" ><span class="glyphicon glyphicon-th-list"></span></a></td>
-				<td class="text-center"></td>
+				<td class="text-center"><a title="Stock" href="/admin/stock" ><span class="glyphicon glyphicon-list-alt"></span></a></td>
 				<td class="text-center"></td>
 			</tr>
 		</tbody>
@@ -56,4 +57,13 @@
 			</tr>
 		</tbody>
 	</table>
+</div>
+-->
+<div class="admin-tabs">
+  <tabset>
+    <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+      <div ng-include='tab.url'></div>
+      <div class="clearfix"></div>
+    </tab>
+  </tabset>
 </div>

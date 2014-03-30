@@ -1,0 +1,30 @@
+<div class="article" ng-controller="AdminStockCtrl">
+
+	<accordion close-others="oneAtATime">
+	    <accordion-group ng-repeat="item in items" heading="{{item._id}} - {{item.name}}">
+	      <a href="/admin/article/new" ><span class="glyphicon glyphicon-plus"></span>Añadir Stock</a>
+	    </accordion-group>
+  </accordion>
+
+	
+</div>
+
+<!--
+<table class="article-table table table-hover">
+	  <thead>
+	    <tr>
+	      <td><b>Id</b></td>
+	      <td><b>Nombre</b></td>
+	      <td><b>Precio</b></td>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr ng-repeat="item in items">
+	      <td class="item-id" ng-click="goTo('admin/article/view/' + item._id)">{{item._id}}</td>
+	      <td>{{item.name}}</td>
+	      <td>{{item.price}}</td>
+	      <td><span class="first-icon glyphicon glyphicon-pencil" ng-click="goTo('admin/article/edit/' + item._id)"></span><span style="color:#d9534f" class="second-icon glyphicon glyphicon-remove" ng-click="RemoveItem(item._id)"></span></td>
+	    </tr>
+	  </tbody>
+	</table>
+	-->

@@ -6,11 +6,18 @@
 		</div>
 	</div>
 	
+	<div class="white-box article-view">
 		<div class="row">
+
+			<div class="col-md-6">
+				<div class="article-image-content">
+					<img class="img-responsive" ng-src="{{mainPhoto}}"/>
+				</div>
+			</div>
 			<div class="col-md-6">
 				<div class="article-title">
-		    <h1>{{articleData.name}}</h1>
-		</div>
+		    		<h1>{{articleData.name}}</h1>
+				</div>
 				<div class="admin-price">
 					<label>Precio</label> {{articleData.price}} €
 				</div>
@@ -38,12 +45,8 @@
 				<div>
 					<span ng-repeat="label in articleData.tags" class="admin-label label label-primary">{{label}}</span>
 				</div>
-					
-			</div>
-				<div class="col-md-6">
-					<img class="img-thumbnail img-responsive" ng-src="{{mainPhoto}}"/>
-				</div>
+			</div>			
+			<div class="clearfix"></div>
 		</div>
-
 	</div>
 </div>

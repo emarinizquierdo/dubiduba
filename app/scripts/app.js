@@ -82,6 +82,10 @@ angular.module('dubidubaApp', [
         templateUrl: 'partials/article',
         controller: 'ArticleCtrl'
       })
+      .when('/admin/stock', {
+        templateUrl: 'partials/admin/stock',
+        controller: 'AdminStockCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

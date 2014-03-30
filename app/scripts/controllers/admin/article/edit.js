@@ -75,6 +75,7 @@ angular.module('dubidubaApp')
         }else{
             $scope.imagesToLoad =[];
             $scope.imagesToLoad[0] = {loading : false};
+            _LoadCategories();
         }
     } 
 

@@ -3,110 +3,117 @@
 		<div ng-include="'partials/navbar.html'" class="header-wrapper"></div>
 	</div>
 
-	<div class="col-sm-12">
-		<h1>{{articleData.name || 'Nuevo artículo'}}</h1>
-	</div>
+	<div class="white-box">
+		<div class="col-sm-12">
+			<h1>{{articleData.name || 'Nuevo artículo'}}</h1>
+		</div>
 
-	<div class="col-sm-12">
+		<div class="col-sm-12">
 
-		<form class="form" name="form" ng-submit="(imagesLoading == 0) && saveArticle(articleData)" novalidate>
+			<form class="form" name="form" ng-submit="(imagesLoading == 0) && saveArticle(articleData)" novalidate>
 
-			
-			<div class="form-group">
-				<label>Nombre de artículo</label>
-				<input type="text" name="name" class="form-control" ng-model="articleData.name" />    
-			</div>
+				
+				<div class="form-group">
+					<label>Nombre de artículo</label>
+					<input type="text" name="name" class="form-control" ng-model="articleData.name" />    
+				</div>
 
-			<div class="checkbox">
-			    <label>
-			      <input ng-model="articleData.favourite" type="checkbox"> Marcar como favorito
-			    </label>
-			</div>
+				<div class="checkbox">
+				    <label>
+				      <input ng-model="articleData.favourite" type="checkbox"> Marcar como favorito
+				    </label>
+				</div>
 
-			<div class="form-group">
-				<div class="form-inline">
-					<div class="form-group">
-						<label>Precio</label>
-						<input type="text" name="price" class="form-control" ng-model="articleData.price" /> 
-					</div>
-					<div class="form-group">
-						<label>€</label>
+				<div class="form-group">
+					<div class="form-inline">
+						<div class="form-group">
+							<label>Precio</label>
+							<input type="text" name="price" class="form-control" ng-model="articleData.price" /> 
+						</div>
+						<div class="form-group">
+							<label>€</label>
+						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="form-group">
-				<label>Categoría</label>
-				<div class="form-inline">
-					<div class="form-group">
-						<select class="form-control" ng-model="categorySelected"  ng-options="category as category.name for category in categories">
-							<option value="" ng-hide="articleData.category">Escoge una opción</option>
-						</select>
-					</div>				
-					<div class="form-group" ng-show="categorySelected.children">
-						<select class="form-control" ng-model="subcategorySelected"  ng-options="subcategory.id as subcategory.name for subcategory in categorySelected.children">
-							<option value="">Escoge una opción</option>
-						</select>
-					</div>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label>Descripción corta</label>
-				<textarea class="form-control" rows="3" ng-model="articleData.shortDescription"></textarea>			    
-			</div>
-
-			<div class="form-group">
-				<label>Descripción</label>
-				<textarea name="tinymce" data-ui-tinymce external-data="articleData.description" external-data-ready="tinyMCE" ui-tinymce-config="tinyConfiguration"></textarea>			    
-			</div>
-
-			<div class="form-group">
-				<label>Medidas</label>
-				<div class="form-inline">
-					<div class="form-group">
-						<select class="form-control" ng-model="articleData.sizeSelected"  ng-options="size.name for size in sizes">
-							<option value="" ng-hide="articleData.sizeSelected">Escoge una opción</option>
-						</select>
-					</div>
-					<div class="form-group" ng-switch on="articleData.sizeSelected.value">
-						<div class="form-group" ng-switch-when="0" >
-							<select class="form-control" ng-model="articleData.size.standar">
-								<option>XS</option>
-								<option>S</option>
-								<option>M</option>
-								<option>L</option>
-								<option>XL</option>
+				<div class="form-group">
+					<label>Categoría</label>
+					<div class="form-inline">
+						<div class="form-group">
+							<select class="form-control" ng-model="categorySelected"  ng-options="category as category.name for category in categories">
+								<option value="" ng-hide="articleData.category">Escoge una opción</option>
+							</select>
+						</div>				
+						<div class="form-group" ng-show="categorySelected.children">
+							<select class="form-control" ng-model="subcategorySelected"  ng-options="subcategory.id as subcategory.name for subcategory in categorySelected.children">
+								<option value="">Escoge una opción</option>
 							</select>
 						</div>
-						<div class="form-group" ng-switch-when="1" >
-							<input type="text" name="price" class="form-control" ng-model="articleData.size.width" placeholder="Ancho"/>
-						</div>
-						<div class="form-group" ng-switch-when="1">
-							<input type="text" name="price" class="form-control" ng-model="articleData.size.height" placeholder="Alto"/>
-						</div>
-						<div class="form-group" ng-switch-when="2">
-							<input type="text" name="price" class="form-control" ng-model="articleData.size.other" placeholder="Añade descripción de talla"/>
-						</div>
-					</div>			
+					</div>
 				</div>
-			</div>
 
-			<div class="form-group">
-				<label>Tags</label>
-				<div bootstrap-tagsinput ng-model="articleData.tags" tagclass="label label-info" placeholder="Añade etiquetas"></div>
-			</div>
+				<div class="form-group">
+					<label>Descripción corta</label>
+					<input type="text" class="form-control" ng-model="articleData.shortDescription"></input>			    
+				</div>
 
-			<div class="form-group">
-				<label>Imágenes</label>
-				<div image-uploader ></div>
-			</div>
+				<div class="form-group">
+					<label>Descripción</label>
+					<textarea name="tinymce" data-ui-tinymce external-data="articleData.description" external-data-ready="tinyMCE" ui-tinymce-config="tinyConfiguration"></textarea>			    
+				</div>
 
-			<button class="btn btn-lg btn-primary" type="submit" ng-class="{disabled: (imagesLoading > 0)}">Guardar cambios</button>
-			<button class="btn btn-lg btn-primary" ng-click="goTo('admin/article')">Cancelar</button>
+				<!--
+				<div class="form-group">
+					<label>Medidas</label>
 
-		</form>
+					<a href="/admin/article/new" ><span class="glyphicon glyphicon-plus"></span> Nuevo artículo</a>
+					<div class="form-inline">
+						<div class="form-group">
+							<select class="form-control" ng-model="articleData.sizeSelected"  ng-options="size.name for size in sizes">
+								<option value="" ng-hide="articleData.sizeSelected">Escoge una opción</option>
+							</select>
+						</div>
+						<div class="form-group" ng-switch on="articleData.sizeSelected.value">
+							<div class="form-group" ng-switch-when="0" >
+								<select class="form-control" ng-model="articleData.size.standar">
+									<option>XS</option>
+									<option>S</option>
+									<option>M</option>
+									<option>L</option>
+									<option>XL</option>
+								</select>
+							</div>
+							<div class="form-group" ng-switch-when="1" >
+								<input type="text" name="price" class="form-control" ng-model="articleData.size.width" placeholder="Ancho"/>
+							</div>
+							<div class="form-group" ng-switch-when="1">
+								<input type="text" name="price" class="form-control" ng-model="articleData.size.height" placeholder="Alto"/>
+							</div>
+							<div class="form-group" ng-switch-when="2">
+								<input type="text" name="price" class="form-control" ng-model="articleData.size.other" placeholder="Añade descripción de talla"/>
+							</div>
+						</div>			
+					</div>
+				</div>
+				-->
+				
+				<div class="form-group">
+					<label>Tags</label>
+					<div bootstrap-tagsinput ng-model="articleData.tags" tagclass="label label-info" placeholder="Añade etiquetas"></div>
+				</div>
 
-		<p class="help-block">{{ errors.other }}</p>
+				<div class="form-group">
+					<label>Imágenes</label>
+					<div image-uploader ></div>
+				</div>
+
+				<button class="btn btn-lg btn-primary" type="submit" ng-class="{disabled: (imagesLoading > 0)}">Guardar cambios</button>
+				<button class="btn btn-lg btn-primary" ng-click="goTo('admin/article')">Cancelar</button>
+
+			</form>
+
+			<p class="help-block">{{ errors.other }}</p>
+		</div>
+		<div class="clearfix"></div>
 	</div>
 </div>
