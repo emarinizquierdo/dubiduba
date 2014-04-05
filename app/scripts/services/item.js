@@ -17,4 +17,11 @@ angular.module('dubidubaApp')
         method: 'DELETE'
       }
 	  });
+  }).factory('Favourite', function ($resource) {
+    return $resource('/api/favourites/', {},
+    { //parameters default
+      get: {
+        method: 'GET'
+      }
+    });
   });

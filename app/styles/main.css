@@ -489,6 +489,17 @@ body {
   box-shadow: 7px 7px 5px #C2C2C2;
 }
 
+.img-responsive-wrapper{
+  max-height: 127px;
+  margin-bottom: 0px;
+  overflow: hidden;
+}
+
+.img-responsive-wrapper img{
+  min-height: 185px;
+  min-width: 187px;
+}
+
 .left-navbar {
   border-right: 1px dashed #C27C86;
   border-bottom: 1px dashed #C27C86;
