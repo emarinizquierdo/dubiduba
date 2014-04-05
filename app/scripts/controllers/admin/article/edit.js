@@ -24,7 +24,6 @@ angular.module('dubidubaApp')
     function _Init(){
         $scope.imagesToLoad = $scope.articleData.photos;
         $scope.imagesToLoad[$scope.imagesToLoad.length] = {loading : false};
-        $scope.articleData.sizeSelected = $scope.sizes[$scope.articleData.sizeSelected.value];
         $scope.tinyMCE = true;
         _LoadCategories();
     }
@@ -45,7 +44,7 @@ angular.module('dubidubaApp')
             p_data.photos = $scope.imagesToLoad;
         }
 
-        p_data.category = $scope.categorySelected.id || null;
+        p_data.category = ($scope.categorySelected && $scope.categorySelected.id) ? $scope.categorySelected.id : null;
         p_data.subcategory = $scope.subcategorySelected;
 
         if($routeParams.id){

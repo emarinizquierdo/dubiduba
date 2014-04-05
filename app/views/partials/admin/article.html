@@ -1,7 +1,6 @@
 <div class="article article-list" ng-controller="AdminArticleCtrl">
 	
 	<a href="/admin/article/new" ><span class="glyphicon glyphicon-plus"></span> Nuevo artículo</a>
-
 	<table class="article-table table table-hover">
 	  <thead>
 	    <tr>
@@ -11,7 +10,7 @@
 	    </tr>
 	  </thead>
 	  <tbody>
-	    <tr ng-repeat="item in items">
+	    <tr ng-repeat=" item in items | orderBy:'-date' ">
 	      <td class="item-id" ng-click="goTo('article/' + item._id)">{{item._id}}</td>
 	      <td class="item-id" ng-click="goTo('article/' + item._id)">{{item.name}}</td>
 	      <td class="item-id" ng-click="goTo('article/' + item._id)">{{item.price}}</td>
@@ -19,4 +18,5 @@
 	    </tr>
 	  </tbody>
 	</table>
+	<div infinite-scroll="LoadItems()"></div>
 </div>

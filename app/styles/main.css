@@ -694,6 +694,11 @@ body {
   border-bottom: 1px dashed #C27C86;
 }
 
+.admin-article-date{
+  text-align: right;
+  padding-top: 20px;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */

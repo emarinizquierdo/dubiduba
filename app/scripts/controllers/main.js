@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dubidubaApp')
-  .controller('MainCtrl', ['$scope', '$location', '$http', function ($scope, $location, $http) {
+  .controller('MainCtrl', ['$scope', '$location', '$http', 'Item', function ($scope, $location, $http, Item) {
     
   	$scope.groupedItems = [];
     $scope.maininfo;
@@ -19,24 +19,28 @@ angular.module('dubidubaApp')
 
       for( _i = 0; _i < (p_data.length / 2); _i++){
         
-        if( ( (_i * 2) +1) < p_data.length){
+        if( ( (_i * 2) +1) < p_data.length ){
           $scope.groupedItems[_i] = [];
 
           $scope.groupedItems[_i][0] = p_data[(_i * 2)];
-          $scope.groupedItems[_i][0].mainPhoto = "http://farm" 
+          if(p_data[(_i * 2)].photos.length > 0 ){
+              $scope.groupedItems[_i][0].mainPhoto = "http://farm" 
             + p_data[(_i * 2)].photos[0].photo.farm 
             + ".staticflickr.com/" 
             + p_data[(_i * 2)].photos[0].photo.server + "/" 
             + p_data[(_i * 2)].photos[0].photo.id + "_" 
             + p_data[(_i * 2)].photos[0].photo.secret + "_m.jpg";
+          }
 
           $scope.groupedItems[_i][1] = p_data[(_i * 2)+1];
-          $scope.groupedItems[_i][1].mainPhoto = "http://farm" 
+          if(p_data[(_i * 2)+1].photos.length > 0 ){
+              $scope.groupedItems[_i][1].mainPhoto = "http://farm" 
             + p_data[(_i * 2)+1].photos[0].photo.farm 
             + ".staticflickr.com/" 
             + p_data[(_i * 2)+1].photos[0].photo.server + "/" 
             + p_data[(_i * 2)+1].photos[0].photo.id + "_" 
             + p_data[(_i * 2)+1].photos[0].photo.secret + "_m.jpg";
+          }
         }
       }
     }
@@ -60,8 +64,9 @@ angular.module('dubidubaApp')
 
     }
 
-    $http.get('/api/item').success(function(items) {  
-      ProcessItems(items);      
+    Item.get({},function(data) {  
+      ProcessItems(data.data);      
+    },function(error){
     });
 
     $http.get('/api/maininfo').success(function(maininfo) {

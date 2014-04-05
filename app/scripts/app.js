@@ -5,6 +5,7 @@ angular.module('dubidubaApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
+  'infinite-scroll',
   'angularFileUpload',
   'bootstrap-tagsinput',
   'ui.tinymce',

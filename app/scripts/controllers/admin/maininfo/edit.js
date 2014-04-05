@@ -39,7 +39,7 @@ angular.module('dubidubaApp')
     }
 
     function _OnSuccess(){
-    	$location.path("/admin/maininfo");
+    	$location.path("/admin");
     }
 
     function _OnError( err ){

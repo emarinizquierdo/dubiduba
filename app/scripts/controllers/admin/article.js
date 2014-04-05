@@ -3,6 +3,12 @@
 angular.module('dubidubaApp')
 	.controller('AdminArticleCtrl', function ($scope, $http, $location, Item) {
 
+		var   totalReaded = false
+			, OFFSET = 20
+			, itemsIndex = 0;
+
+		$scope.items = [];
+
 	    $scope.goTo = function( p_route ){
 	    	$location.path(p_route);
 	    }
@@ -15,12 +21,26 @@ angular.module('dubidubaApp')
 	        });
     	}
 
-    	function _LoadItems(){
-    		$http.get('/api/item').success(function(items) {
-	      		$scope.items = items;
-	    	});
-	 	}
+    	$scope.LoadItems = function(){
+    		
+    		if(!totalReaded){
+	    		Item.get({
+	    			  'cursor' : itemsIndex || 0
+	    			, 'numItems' : OFFSET
+	    		}, function(data) {
+	    			if(data && data.data){
+	    				if( itemsIndex + OFFSET > data.total){
+	    					totalReaded = true;
+	    				}
 
-	 	_LoadItems();
+	    				$scope.items = $scope.items.concat(data.data);
+		         		itemsIndex += OFFSET;
+	    			}
+		        }, function(err) {
+
+		        });
+	    	}
+    		
+	 	}
 
 	});

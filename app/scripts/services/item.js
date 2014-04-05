@@ -11,9 +11,7 @@ angular.module('dubidubaApp')
         method: 'PUT'
       },
       get: {
-        method: 'GET',
-        params: {
-        }
+        method: 'GET'
       },
       delete: {
         method: 'DELETE'

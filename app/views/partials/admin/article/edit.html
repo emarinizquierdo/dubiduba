@@ -5,7 +5,14 @@
 
 	<div class="white-box">
 		<div class="col-sm-12">
-			<h1>{{articleData.name || 'Nuevo artículo'}}</h1>
+			<div class="col-sm-6">
+				<h1>{{articleData.name || 'Nuevo artículo'}}</h1>
+			</div>
+			<div class="col-sm-6">
+				<div class="admin-article-date">
+					{{articleData.date | date:'dd-MM-yyyy'}}
+				</div>
+			</div>
 		</div>
 
 		<div class="col-sm-12">
@@ -15,7 +22,8 @@
 				
 				<div class="form-group">
 					<label>Nombre de artículo</label>
-					<input type="text" name="name" class="form-control" ng-model="articleData.name" />    
+					<input type="text" name="name" class="form-control" ng-model="articleData.name" />
+
 				</div>
 
 				<div class="checkbox">
