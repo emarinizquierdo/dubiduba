@@ -33,14 +33,18 @@
 								<div class="img-responsive-wrapper">
 									<img class="img-responsive" ng-src="{{item[0].mainPhoto}}"/>
 								</div>
-							</div>							
+							</div>
+							<div class="favourites-titles">{{item[0].name}}</div>
+							<div class="favourites-prices">{{item[0].price}} €</div>						
 						</div>
 						<div class="col-md-6">
 							<div class="img-thumbnail" ng-click="goTo('article/' + item[1]._id)">
 								<div class="img-responsive-wrapper">
 									<img class="img-responsive" ng-src="{{item[1].mainPhoto}}"/>
 								</div>
-							</div>						
+							</div>	
+							<div class="favourites-titles">{{item[1].name}}</div>
+							<div class="favourites-prices">{{item[1].price}} €</div>			
 						</div>
 					</slide>
 	    		</carousel>	
@@ -59,6 +63,8 @@
 									<img class="img-responsive" ng-src="{{item[0].mainPhoto}}"/>
 								</div>
 							</div>
+							<div class="newest-titles">{{item[0].name}}</div>
+							<div class="newest-prices">{{item[0].price}} €</div>
 						</div>
 						<div class="col-md-6">
 							<div class="img-thumbnail" ng-click="goTo('article/' + item[1]._id)">
@@ -66,6 +72,8 @@
 									<img class="img-responsive" ng-src="{{item[1].mainPhoto}}"/>
 								</div>
 							</div>
+							<div class="newest-titles">{{item[1].name}}</div>
+							<div class="newest-prices">{{item[1].price}} €</div>
 						</div>
 					</slide>
 	    		</carousel>

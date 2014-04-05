@@ -442,6 +442,19 @@ body {
   border: 1px solid #C27C86;
 }
 
+.favourites-body .img-thumbnail,
+.newest-body .img-thumbnail{
+  cursor: pointer;
+}
+
+.newest-titles,
+.favourites-titles{
+  color: #C27C86;
+  font-family: 'Flamenco', cursive;
+  font-size: 14px;
+  margin-top: 7px;
+}
+
 .main-catalog {
 
 }

@@ -15,7 +15,6 @@ angular.module('dubidubaApp')
 
     function ProcessItems( p_data, p_groupedItems ){
 
-
       var _i;
 
       for( _i = 0; _i < (p_data.length / 2); _i++){
