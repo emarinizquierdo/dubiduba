@@ -8,18 +8,6 @@ angular.module('dubidubaApp')
     $scope.categories = [];
     $scope.imagesLoading = 0;
     $scope.tinyMCE = false;
-    
-    $scope.sizes = [
-        {   name : 'Talla estándar',
-            value : 0
-        },
-        {   name : 'Dimensiones',
-            value : 1
-        },
-        {   name : 'Otras tallas',
-            value : 2
-        }
-    ];
 
     function _Init(){
         $scope.imagesToLoad = $scope.articleData.photos;

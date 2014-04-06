@@ -1,0 +1,30 @@
+<div class="article article-list" ng-controller="AdminSizesCtrl">
+
+	<div class="col-sm-12">
+
+		<div ng-repeat="size in sizes">
+			{{size.name}} {{size.value}} {{size.description}}
+		</div>
+
+		<form class="form-inline" role="form" ng-submit="AddSize(newsize)">
+			<div class="form-group col-xs-2">
+				<label class="sr-only" for="nameInput">Nombre de talla</label>
+				<input type="text" class="form-control" id="nameInput" placeholder="Nombre de talla" ng-model="newsize.name">
+			</div>
+			<div class="form-group col-xs-2">
+				<label class="sr-only" for="valueInput">Valor a mostrar</label>
+				<input type="text" class="form-control" id="valueInput" placeholder="Valor a mostrar" ng-model="newsize.value">
+			</div>
+			<div class="form-group col-xs-2">
+				<label class="sr-only" for="widthInput">Ancho de talla</label>
+				<input type="text" class="form-control" id="widthInput" placeholder="Ancho" ng-model="newsize.width">
+			</div>
+			<div class="form-group col-xs-2">
+				<label class="sr-only" for="heightInput">Alto de talla</label>
+				<input type="text" class="form-control" id="heightInput" placeholder="Alto" ng-model="newsize.height">
+			</div>
+			<button type="submit" class="btn btn-default">Añadir Talla</button>
+		</form>
+
+	</div>
+</div>

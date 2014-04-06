@@ -298,6 +298,22 @@ body {
   cursor: pointer;
 }
 
+.stock-container{
+  padding: 20px;
+}
+
+.stock-container .stock-seeker{
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.stock-container .stock-results-header h4 a,
+.stock-container .stock-results-header h4 a:hover{
+  font-size:13px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .img-to-load {
   position: relative;
   width: 50px;

@@ -24,4 +24,11 @@ angular.module('dubidubaApp')
         method: 'GET'
       }
     });
+  }).factory('ItemSearch', function ($resource) {
+    return $resource('/api/search/', {},
+    { //parameters default
+      get: {
+        method: 'GET'
+      }
+    });
   });

@@ -1,26 +1,36 @@
 'use strict';
 
 angular.module('dubidubaApp')
-	.controller('AdminStockCtrl', function ($scope, $http, $location, Item) {
+.controller('AdminStockCtrl', ['$scope', '$http', '$location', 'ItemSearch', function ($scope, $http, $location, ItemSearch) {
 
-	    $scope.goTo = function( p_route ){
-	    	$location.path(p_route);
-	    }
+	$scope.searchedItems = [];
 
-	    $scope.RemoveItem = function( p_id ){
-	    	$http.delete('/api/item/' + p_id).success(function(p_data) {
-	        	_LoadItems();
-	        }).error(function(error){
-	            
-	        });
-    	}
+	$scope.sizes = [
+        {   name : 'Talla estándar',
+            value : 0
+        },
+        {   name : 'Dimensiones',
+            value : 1
+        },
+        {   name : 'Otras tallas',
+            value : 2
+        }
+    ];
+    
+    $scope.goTo = function( p_route ){
+    	$location.path(p_route);
+    }
 
-    	function _LoadItems(){
-    		$http.get('/api/item').success(function(items) {
-	      		$scope.items = items;
+    $scope.Search = function( p_searchKey ){
+    	if(p_searchKey != ""){
+    		ItemSearch.get({ 'searchkey' : p_searchKey }, function( p_data ){
+	    		if(p_data.data && p_data.total > 0 ){
+	    			$scope.searchedItems = p_data.data;
+	    		}
+	    	}, function( p_error){
+
 	    	});
-	 	}
+    	}    	
+	}
 
-	 	_LoadItems();
-
-	});
+}]);
