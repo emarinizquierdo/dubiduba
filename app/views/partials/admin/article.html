@@ -7,6 +7,7 @@
 	      <td><b>Id</b></td>
 	      <td><b>Nombre</b></td>
 	      <td><b>Precio</b></td>
+	      <td><b>Stock</b></td>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -14,6 +15,7 @@
 	      <td class="item-id" ng-click="goTo('article/' + item._id)">{{item._id}}</td>
 	      <td class="item-id" ng-click="goTo('article/' + item._id)">{{item.name}}</td>
 	      <td class="item-id" ng-click="goTo('article/' + item._id)">{{item.price}}</td>
+	      <td class="item-id" ng-click="goTo('article/' + item._id)">{{item.totalStock}}</td>
 	      <td><span class="first-icon glyphicon glyphicon-pencil" ng-click="goTo('admin/article/edit/' + item._id)"></span><span style="color:#d9534f" class="second-icon glyphicon glyphicon-remove" ng-click="RemoveItem(item._id)"></span></td>
 	    </tr>
 	  </tbody>
