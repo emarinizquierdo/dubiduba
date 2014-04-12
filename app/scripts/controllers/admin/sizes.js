@@ -22,6 +22,16 @@ angular.module('dubidubaApp')
 
 		});
 	}
+ 
+	$scope.RemoveSize = function( p_id ){
+
+		Size.delete({ id : p_id }, function(p_data) {
+        	_LoadSizes();
+        },function(error){
+            
+        });
+
+	};
 
 	_LoadSizes();
 

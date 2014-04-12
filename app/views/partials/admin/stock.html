@@ -1,6 +1,6 @@
 <div class="article stock-container" ng-controller="AdminStockCtrl">
 
-	<form class="stock-seeker form-inline" role="form" ng-submit="Search(searchKey)">
+	<form class="stock-seeker form-inline highlight" role="form" ng-submit="Search(searchKey)">
 		<div class="form-group">
 			<input type="text" class="form-control" placeholder="Introduce artículo a buscar" ng-model="searchKey">
 		</div>
@@ -9,7 +9,54 @@
 
 	<accordion close-others="oneAtATime">
 	    <accordion-group ng-repeat="item in searchedItems" class="stock-results-header" heading="{{item._id}} - {{item.name}}">
-	     Aquí añadiremos stock
+
+	    	<table class="table" ng-show="sizes.length">
+				<thead>
+					<tr>
+						<th>Talla</th>
+						<th>Color</th>
+						<th>Cantidad</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="stockItem in item.stock">
+						<td>{{stockItem.size.value}}</td>
+						<td></td>
+						<td>{{stockItem.amount}}</td>
+						<td><span style="color:#d9534f" class="delete-stock-icon glyphicon glyphicon-remove" ng-click="RemoveStock(item,$index)"></span></td>
+					</tr>					
+				</tbody>
+				<thead>
+					<tr>
+						<th>Total</th>
+						<th></th>
+						<th>{{item.totalStock}}</th>
+						<th></th>
+					</tr>
+				</thead>
+			</table>
+
+			<form class="form-inline" role="form">
+				<fieldset>
+					<div class="form-group col-xs-2">
+						<input type="text" class="form-control" id="nameInput" placeholder="Cantidad" ng-model="item.stockToAdd.amount">
+					</div>
+					<div class="form-group">
+						<select class="form-control" ng-model="item.stockToAdd.size" ng-options="size.value for size in sizes">
+							<option value="">-- selecciona una talla--</option>
+						</select>
+					</div>
+					<!--
+					<div class="form-group">
+						<input type="text" class="form-control" id="nameInput" placeholder="Color" ng-model="newsize.width">
+					</div>
+				-->
+					<div class="form-group btn-sizes-accept">
+						<button type="submit" class="btn btn-default" ng-click="AddStock(item)">Añadir Stock</button>
+					</div>
+				</fieldset>
+			</form>
 	    </accordion-group>
   </accordion>
 

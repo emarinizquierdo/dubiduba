@@ -1,30 +1,46 @@
-<div class="article article-list" ng-controller="AdminSizesCtrl">
+<div class="article sizes-list" ng-controller="AdminSizesCtrl">
 
 	<div class="col-sm-12">
 
-		<div ng-repeat="size in sizes">
-			{{size.name}} {{size.value}} {{size.description}}
-		</div>
-
-		<form class="form-inline" role="form" ng-submit="AddSize(newsize)">
-			<div class="form-group col-xs-2">
-				<label class="sr-only" for="nameInput">Nombre de talla</label>
-				<input type="text" class="form-control" id="nameInput" placeholder="Nombre de talla" ng-model="newsize.name">
-			</div>
-			<div class="form-group col-xs-2">
-				<label class="sr-only" for="valueInput">Valor a mostrar</label>
-				<input type="text" class="form-control" id="valueInput" placeholder="Valor a mostrar" ng-model="newsize.value">
-			</div>
-			<div class="form-group col-xs-2">
-				<label class="sr-only" for="widthInput">Ancho de talla</label>
-				<input type="text" class="form-control" id="widthInput" placeholder="Ancho" ng-model="newsize.width">
-			</div>
-			<div class="form-group col-xs-2">
-				<label class="sr-only" for="heightInput">Alto de talla</label>
-				<input type="text" class="form-control" id="heightInput" placeholder="Alto" ng-model="newsize.height">
-			</div>
-			<button type="submit" class="btn btn-default">Añadir Talla</button>
+		<table class="table" ng-show="sizes.length">
+			<thead>
+				<tr>
+					<th>Valor</th>
+					<th>Descripción</th>
+					<th>Ancho (cm)</th>
+					<th>Alto (cm)</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="size in sizes">
+					<td>{{size.value}}</td>
+					<td>{{size.name}}</td>
+					<td>{{size.width}}</td>
+					<td>{{size.height}}</td>
+					<td><span style="color:#d9534f" class="delete-size-icon glyphicon glyphicon-remove" ng-click="RemoveSize(size._id)"></span></td>
+				</tr>
+				
+			</tbody>
+		</table>
+		<form class="form-inline" role="form">
+			<fieldset>
+				<div class="form-group">
+					<input type="text" class="form-control" id="nameInput" placeholder="Nombre de talla" ng-model="newsize.value">
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" id="nameInput" placeholder="Nombre de talla" ng-model="newsize.name">
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" id="nameInput" placeholder="Nombre de talla" ng-model="newsize.width">
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" id="nameInput" placeholder="Nombre de talla" ng-model="newsize.height">
+				</div>
+				<div class="form-group btn-sizes-accept">
+					<button type="submit" class="btn btn-default" ng-click="AddSize(newsize)">Añadir Talla</button>
+				</div>
+			</fieldset>
 		</form>
-
 	</div>
 </div>
