@@ -13,6 +13,11 @@
 				<div class="article-image-content">
 					<img class="img-responsive" ng-src="{{mainPhoto}}"/>
 				</div>
+				<div class="main-banners-block border-dotted">
+				    <div class="article-images-carousel" owl-carousel launch-owl="launchOwl">
+						<div ng-repeat="slide in articleData.photosCarousel" on-finish-render owlTrigger="launchOwl" class="item"><img ng-src="{{slide}}" alt="Owl Image" ng-click="mainPhoto = slide.photoBig[$index]"></div>
+					</div>
+				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="article-title">
