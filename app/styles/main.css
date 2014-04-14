@@ -811,12 +811,12 @@ body {
 }
 
 .article-title{
-
+  border-bottom: 1px dashed #C27C86;
+  margin: 15px 0px;
 }
 
 .article-title h1{
   font-family: 'Flamenco', cursive;
-  border-bottom: 1px dashed #C27C86;
 }
 
 .admin-article-date{
