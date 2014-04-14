@@ -20,10 +20,17 @@
 				</div>
 			</div>
 			<div class="col-md-6">
-				<div class="article-title">
-		    		<h1>{{articleData.name}}</h1>
-		    		<span class="article-price">{{articleData.price}} €</span>
+				<div class="row">
+					<div class="col-md-8">
+						<h1>{{articleData.name}}</h1>
+					</div>
+					<div class="col-md-4">
+						<div class="article-price-wrapper">
+							<span class="article-price">{{articleData.price}} €</span>
+						</div>
+					</div>
 				</div>
+				
 
 				<div class="item-buy-selector">
 					<div class="size-chooser" ng-show="articleData.stock.length > 0">

@@ -724,10 +724,12 @@ body {
   padding: 20px;
 }
 
+.article-price-wrapper{
+  height: 60px;
+  margin-top: 30px;
+}
+
 .article-price {
-  position: absolute;
-  top: 17px;
-  right: 31px;
   font-size: 31px;
   font-weight: bold;
   background-color: #C27C86;
@@ -902,7 +904,7 @@ body {
   }
 
   .article-price {
-    top: -5px;
+    
   }
 
 }
@@ -914,7 +916,7 @@ body {
   }
 
   .article-price {
-    top: -5px;
+    
   }
 
 }
@@ -926,6 +928,6 @@ body {
   }
 
   .article-price {
-    top: -5px;
+    
   }
 }
