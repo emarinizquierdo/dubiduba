@@ -7,6 +7,19 @@ angular.module('dubidubaApp')
 	    $scope.mainPhoto;
 	    $scope.launchOwl = false;
 
+	    $scope.mainPhotoChanger = function( p_data ){
+	    	$scope.mainPhoto = p_data;
+	    };
+
+	    $scope.setActiveSize = function( p_index ){
+
+	    	var _i = 0;
+	    	for(_i=0; _i < $scope.articleData.stock.length; _i++){
+	    		$scope.articleData.stock[_i].active = false;
+	    	}
+	    	$scope.articleData.stock[p_index].active = true;
+	    }
+
 	    Item.get({ id : $routeParams.id },function(article) {
 
 	    	var _i = 0;
@@ -32,7 +45,7 @@ angular.module('dubidubaApp')
                 + ".staticflickr.com/" 
                 + $scope.articleData.photos[_i].photo.server + "/" 
                 + $scope.articleData.photos[_i].photo.id + "_" 
-                + $scope.articleData.photos[_i].photo.secret + "_s.jpg";
+                + $scope.articleData.photos[_i].photo.secret + "_q.jpg";
 
                 $scope.articleData.photosBig[_i] = "http://farm" 
                 + $scope.articleData.photos[_i].photo.farm 
@@ -60,10 +73,12 @@ angular.module('dubidubaApp')
 
 					element.owlCarousel({
 						autoPlay: 3000, //Set AutoPlay to 3 seconds
-						items : 4,
-						itemsDesktop : [1199,3],
-						itemsDesktopSmall : [979,3]
-
+						itemsCustom : [
+					        [0, 5],
+					        [450, 5],
+					        [600, 7],
+					        [700, 6]
+					    ]
 					});	
 				}
 			});			

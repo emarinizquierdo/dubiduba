@@ -15,36 +15,31 @@
 				</div>
 				<div class="main-banners-block border-dotted">
 				    <div class="article-images-carousel" owl-carousel launch-owl="launchOwl">
-						<div ng-repeat="slide in articleData.photosCarousel" on-finish-render owlTrigger="launchOwl" class="item"><img ng-src="{{slide}}" alt="Owl Image" ng-click="mainPhoto = slide.photoBig[$index]"></div>
+						<div ng-repeat="slide in articleData.photosCarousel" on-finish-render owlTrigger="launchOwl" class="item"><img ng-src="{{slide}}" alt="Owl Image" ng-click="mainPhotoChanger(articleData.photosBig[$index])"></div>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="article-title">
 		    		<h1>{{articleData.name}}</h1>
+		    		<span class="article-price">{{articleData.price}} €</span>
 				</div>
-				<div class="admin-price">
-					<label>Precio</label> {{articleData.price}} €
+
+				<div class="item-buy-selector">
+					<div class="size-chooser" ng-show="articleData.stock.length > 0">
+						<label>Talla</label><br/>
+						<ul class="article-size-list">
+							<li ng-repeat="size in articleData.stock" ng-class="{'active' : size.active}" ng-click="setActiveSize($index)">{{size.size.value}}</li>
+						</ul>
+					</div>
+					<div class="no-stock" ng-hide="articleData.stock.length > 0">
+						Sin stock
+					</div>
 				</div>
 
 				<div >
 					<label>Descripción</label><br/>
 					<div ng-bind-html="articleData.description"></div>
-				</div>
-
-				<div >
-					<label>Talla</label><br/>
-					<div ng-switch on="articleData.sizeSelected.value">
-						<div ng-switch-when="0">
-							{{articleData.size.standar}}
-						</div>
-						<div ng-switch-when="1">
-							<label>Ancho</label> {{articleData.size.width}} cm x <label>Alto</label> {{articleData.size.height}} cm
-						</div>
-						<div ng-switch-when="2">
-							{{articleData.size.other}}
-						</div>
-					</div>
 				</div>
 
 				<div>
