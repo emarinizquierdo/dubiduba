@@ -1,7 +1,5 @@
 /* Space out content a bit */
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
   background: #F8F8F8 url('/images/bg-pattern.gif');
   color: #484d43;
   font: normal 12px/150% Verdana, Arial, sans-serif;
@@ -31,6 +29,19 @@ body {
 /* Custom page header */
 
 /* Make the masthead heading the same height as the navigation */
+.global-header{
+  margin-bottom:100px;
+}
+
+.global-header-wrapper{
+  background-color: #ECBFC6;
+  width: 100%;
+  height: 100px;
+  margin-top: 0px;
+  padding-top: 0px;
+  border-bottom: 10px solid #C27C86;
+}
+
 .header h3 {
   margin-top: 0;
   margin-bottom: 0;
@@ -46,8 +57,10 @@ body {
 }
 
 .header-wrapper {
-  height: 75px;
+  height: 80px;
   margin-bottom: 20px;
+  margin-top: 9px;
+  color: #ffffff;
 }
 
 .header-wrapper .navbar-menu {
@@ -57,14 +70,15 @@ body {
 }
 
 .header-wrapper .nav {
-  border-bottom: 1px dashed #C27C86;
+
 }
 
 .header-wrapper .nav > li > a {
   position: relative;
   display: block;
   padding: 4px;
-  color:#484d43;
+  color: white;
+  font-size: 14px;
 }
 
 .header-wrapper .nav > li > a:hover {
@@ -202,51 +216,61 @@ body {
 }
 
 /* Custom page footer */
-.main-footer {
-  margin-top: 100px;
+.global-footer{
+  width: 100%;
+  margin-top: 115px;
+  background-color: #C27C86;
 }
 
-.main-footer .footerNav {
-  background: url('/images/bg-footer.gif') no-repeat 0 0;
-  background-size: 203% auto;
+.global-footer .row{
+  margin: 0px;
 }
 
-.main-footer .inner {
-  background: url('/images/bg-footer.gif') no-repeat -974px 100%;
-  padding: 20px 110px 35px;
-  overflow: hidden;
-  background-size: 203% auto;
+.global-footer .global-footer-wrapper{
+  width: 100%;
+  font-size: 13px;
+  color: #ffffff;
+  background-color: #C27C86;
+  padding-top: 10px;
 }
 
-.main-footer .socialLinks {
-  text-align: center;
+.global-footer .main-block{
+  background-color: #C27C86;
+  border-top: 1px dashed #ffffff;
+  padding: 15px 0;
 }
 
-.main-footer .socialLinks ul,
-.main-footer .socialLinks ol{
+.global-footer .main-block textarea{
+  resizable: none;
+}
+
+.global-footer .secondary-block{
+  height: 80px;
+  background-color: #7C4F55;
+  padding-top: 10px;
+}
+
+.global-footer .social-links ul,
+.global-footer .social-links ol{
+  padding: 0px;
   list-style: none;
+  color: #ffffff;
 }
 
-.main-footer .socialLinks .facebook img {
-  width: 40px;
-  text-align: middle;
-  padding-bottom: 10px;
-}
-
-.main-footer .socialLinks .facebook a:hover {
+.global-footer .social-links .facebook a,
+.global-footer .social-links .facebook a:hover {
   text-decoration: none;
+  color: #ffffff;
 }
 
-.main-footer-facebook {
-  font-family: 'Flamenco', cursive;
-  font-size: 24px;
-  color: #333;
-}
-
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+.social-icon--facebook {
+  display: inline-block;
+  background-image: url('/images/dubiduba_sprites.png');
+  background-position: -290px 0px;
+  width: 14px;
+  height: 14px;
+   vertical-align: text-top;
+  margin-right: 5px;
 }
 
 .rounded-box {
@@ -389,8 +413,8 @@ body {
 .logo-container {
   position: absolute;
   margin-left: 20px;
+  top: 22px;
 }
-
 
 .main-thumbnail {
   position: relative;
@@ -799,6 +823,9 @@ body {
 
 .article .article-table .item-id{
   cursor: pointer;
+  text-overflow: ellipsis;
+  max-width: 100px;
+  overflow: hidden;
 }
 
 .article .article-table .first-icon{
@@ -856,6 +883,7 @@ body {
 @media (max-width: 768px){
   .logo-container {
     max-width: 90px;
+    top: 39px;
   }
 
   .carousel-control .icon-next {
@@ -895,14 +923,6 @@ body {
     font-size: 26px;
   }
 
-  .main-footer .socialLinks .facebook img {
-    width: 26px;
-  }
-
-  .main-footer-facebook {
-    font-size: 16px;
-  }
-
   .article-price {
     
   }
@@ -912,7 +932,8 @@ body {
 /* Customize container */
 @media (max-width: 500px){
   .logo-container {
-    max-width: 60px;
+    max-width: 80px;
+    top: 45px;
   }
 
   .article-price {

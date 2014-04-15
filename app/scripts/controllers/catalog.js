@@ -4,6 +4,7 @@ angular.module('dubidubaApp')
   .controller('CatalogCtrl', function ($scope, $http, $location, $routeParams, Item) {
     
     var   totalReaded = false
+        , loadingItems = false
         , OFFSET = 20
         , itemsIndex = 0;
 
@@ -23,26 +24,24 @@ angular.module('dubidubaApp')
     	}
     }
 
-    function _ProcessItems( p_data ){
+    function _GenerateMainPhoto( p_data ){
 
-      $scope.Items = p_data || [];
-      
-      var _i;
-      for( _i = 0; _i < $scope.Items.length; _i++ ){
-        if($scope.Items[_i].photos.length > 0){
-              $scope.Items[_i].mainPhoto = "http://farm" 
-            + $scope.Items[_i].photos[0].photo.farm 
+        if(p_data && p_data.photos && (p_data.photos.length >0)){
+        
+            return "http://farm" 
+            + p_data.photos[0].photo.farm 
             + ".staticflickr.com/" 
-            + $scope.Items[_i].photos[0].photo.server + "/" 
-            + $scope.Items[_i].photos[0].photo.id + "_" 
-            + $scope.Items[_i].photos[0].photo.secret + "_b.jpg";
+            + p_data.photos[0].photo.server + "/" 
+            + p_data.photos[0].photo.id + "_" 
+            + p_data.photos[0].photo.secret + "_b.jpg";
         }
-      }
     }
 
     $scope.LoadCatalog = function(){
 
-    	if($routeParams.id && !totalReaded){
+    	if($routeParams.id && !totalReaded && !loadingItems){
+
+            loadingItems = true;
 
             Item.get({
                   'category' : $routeParams.id
@@ -56,16 +55,24 @@ angular.module('dubidubaApp')
                         totalReaded = true;
                     }
 
+                    var _i = 0;
+
+                    for( _i = 0; _i < data.data.length; _i++ ){
+                        data.data[_i].mainPhoto = _GenerateMainPhoto(data.data[_i]);
+                    }
+
                     $scope.Items = $scope.Items.concat(data.data);
                     itemsIndex += OFFSET;
-                    _ProcessItems($scope.Items);                    
+                    loadingItems = false;                   
                 }
 
             }, function(err) {
 
             });    
 
-        }else if(!totalReaded){
+        }else if(!totalReaded && !loadingItems){
+
+            loadingItems = true;
 
             Item.get({
                   'category' : $routeParams.id
@@ -77,10 +84,15 @@ angular.module('dubidubaApp')
                     if( itemsIndex + OFFSET > data.total){
                         totalReaded = true;
                     }
+                    var _i = 0;
+
+                    for( _i = 0; _i < data.data.length; _i++ ){
+                        data.data[_i].mainPhoto = _GenerateMainPhoto(data.data[_i]);
+                    }
 
                     $scope.Items = $scope.Items.concat(data.data);
                     itemsIndex += OFFSET;
-                    _ProcessItems($scope.Items);                    
+                    loadingItems = false;             
                 }
 
             }, function(err) {
