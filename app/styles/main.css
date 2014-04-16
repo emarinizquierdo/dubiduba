@@ -61,6 +61,7 @@ body {
   margin-bottom: 20px;
   margin-top: 9px;
   color: #ffffff;
+  text-align: right;
 }
 
 .header-wrapper .navbar-menu {
@@ -89,6 +90,12 @@ body {
 .header-wrapper .nav-pills > li.active > a {
   background: transparent;
   font-weight: bold;
+}
+
+.cart-wrapper{
+  position: relative;
+  top: 26px;
+  right: -138px;
 }
 
 .main-menu {
@@ -715,6 +722,26 @@ body {
     opacity: .8;
 }
 
+/* My Cart */
+
+.simpleCart_items .headerRow{
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-bottom: 1px solid #ddd;
+}
+
+.simpleCart_items .itemRow{
+  height: 80px;
+}
+
+.simpleCart_items th {
+  width: 300px;
+}
+
+.simpleCart_items .item-thumb img{
+  width: 90px;
+}
 
 /* Customize container */
 @media (min-width: 768px) {
@@ -803,6 +830,11 @@ body {
 
 .article-size-list li.active{
   background: #C27C86;
+}
+
+.article-size-list li.stockoff{
+  background: #AC0000;
+  cursor: default;
 }
 
 .no-stock{

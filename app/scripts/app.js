@@ -83,6 +83,10 @@ angular.module('dubidubaApp', [
         templateUrl: 'partials/article',
         controller: 'ArticleCtrl'
       })
+      .when('/pedidos', {
+        templateUrl: 'partials/pedidos',
+        controller: 'PedidosCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

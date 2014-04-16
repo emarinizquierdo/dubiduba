@@ -18,6 +18,7 @@ angular.module('dubidubaApp')
 	    		$scope.articleData.stock[_i].active = false;
 	    	}
 	    	$scope.articleData.stock[p_index].active = true;
+	    	$scope.sizeSelected = $scope.articleData.stock[p_index].size.value;
 	    }
 
 	    Item.get({ id : $routeParams.id },function(article) {

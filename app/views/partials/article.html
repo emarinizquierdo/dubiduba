@@ -1,11 +1,11 @@
-<div class="article">
+<div class="article simpleCart_shelfItem">
 	
 	<div class="white-box article-view">
 		<div class="row">
 
 			<div class="col-md-6">
 				<div class="article-image-content">
-					<img class="img-responsive" ng-src="{{mainPhoto}}"/>
+					<img class="img-responsive item_thumb" ng-src="{{mainPhoto}}"/>
 				</div>
 				<div class="main-banners-block border-dotted">
 				    <div class="article-images-carousel" owl-carousel launch-owl="launchOwl">
@@ -16,26 +16,37 @@
 			<div class="col-md-6">
 				<div class="row article-title">
 					<div class="col-md-8 ">
-						<h1>{{articleData.name}}</h1>
+						<h1 class="item_name">{{articleData.name}}</h1>
 					</div>
 					<div class="col-md-4">
 						<div class="article-price-wrapper">
-							<span class="article-price">{{articleData.price}} €</span>
+							<span class="article-price item_price">{{articleData.price}} €</span>
 						</div>
 					</div>
 				</div>
 				
-
 				<div class="item-buy-selector">
 					<div class="size-chooser" ng-show="articleData.stock.length > 0">
 						<label>Talla</label><br/>
 						<ul class="article-size-list">
-							<li ng-repeat="size in articleData.stock" ng-class="{'active' : size.active}" ng-click="setActiveSize($index)">{{size.size.value}}</li>
+							<li ng-repeat="size in articleData.stock" ng-class="{'active' : (size.active && size.amount != 0) , 'stockoff' : (size.amount == 0)}" ng-click="setActiveSize($index)">{{size.size.value}}</li>
 						</ul>
+						<div class="item_size">{{sizeSelected}}</div>
+						<div class="">
+							<p>
+								<div class="form-inline row">
+									<div class="col-xs-3">
+										<input type="text" value="1" name="name" class="form-control item_Quantity" />
+									</div>
+									<a class="item_add btn btn-default" href="javascript:;"> Añadir al carrito </a>
+								</div>							
+							</p>
+						</div>
 					</div>
 					<div class="no-stock" ng-hide="articleData.stock.length > 0">
 						Sin stock
 					</div>
+
 				</div>
 
 				<div >
