@@ -5,7 +5,8 @@
 
 			<div class="col-md-6">
 				<div class="article-image-content">
-					<img class="img-responsive item_thumb" ng-src="{{mainPhoto}}"/>
+					<img class="img-responsive" ng-src="{{mainPhoto}}"/>
+					<img class="img-responsive item_thumb" ng-src="{{cartPhoto}}"/>
 				</div>
 				<div class="main-banners-block border-dotted">
 				    <div class="article-images-carousel" owl-carousel launch-owl="launchOwl">
@@ -31,6 +32,7 @@
 						<ul class="article-size-list">
 							<li ng-repeat="size in articleData.stock" ng-class="{'active' : (size.active && size.amount != 0) , 'stockoff' : (size.amount == 0)}" ng-click="setActiveSize($index)">{{size.size.value}}</li>
 						</ul>
+
 						<div class="item_size">{{sizeSelected}}</div>
 						<div class="">
 							<p>

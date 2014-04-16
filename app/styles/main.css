@@ -793,6 +793,10 @@ body {
   padding: 75px 20px;
 }
 
+.article-image-content .item_thumb{
+  display: none;
+}
+
 .article-image-content img {
   margin: auto;
 }
@@ -802,6 +806,10 @@ body {
   border-width: 1px 0;
   margin-bottom: 10px;
   padding-bottom: 10px;
+}
+
+.item-buy-selector .item_size{
+  display: none;
 }
 
 .article-size-list{

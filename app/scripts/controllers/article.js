@@ -34,6 +34,12 @@ angular.module('dubidubaApp')
                 + $scope.articleData.photos[0].photo.server + "/" 
                 + $scope.articleData.photos[0].photo.id + "_" 
                 + $scope.articleData.photos[0].photo.secret + "_z.jpg";
+                $scope.cartPhoto = "http://farm" 
+                + $scope.articleData.photos[0].photo.farm 
+                + ".staticflickr.com/" 
+                + $scope.articleData.photos[0].photo.server + "/" 
+                + $scope.articleData.photos[0].photo.id + "_" 
+                + $scope.articleData.photos[0].photo.secret + "_q.jpg";
         	}
 
         	$scope.articleData.photosCarousel = [];
