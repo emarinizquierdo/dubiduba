@@ -9,7 +9,7 @@
           <ul class="dropdown-menu" ng-show="category.children">
           	<li><a ng-click="goTo('/catalog/' + category.id)" href="">{{category.name}}</a></li>
           	<li class="divider"></li>
-            <li ng-repeat="subcategory in category.children"><a ng-click="goTo('/catalog/' + subcategory.id)" href="">{{subcategory.name}}</a></li>
+            <li class="clearfix" ng-repeat="subcategory in category.children"><a ng-click="goTo('/catalog/' + subcategory.id)" href="">{{subcategory.name}}</a></li>
           </ul>
         </li>
       </ul>

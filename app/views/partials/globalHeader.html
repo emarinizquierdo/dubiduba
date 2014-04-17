@@ -1,16 +1,20 @@
 <div class="global-header-wrapper">
-    <div class="main-block">
-        <div class="container">
-            <div class="main-header">
-                <div class="logo-container" >
-                    <a href="/" title="Dubi Duba" >
-                        <img class="img-responsive" src="images/dubiduba.png"/>
-                    </a>
+    <div class="header-style"></div>
+    <div class="main-block-wrapper">
+        <div class="main-block">
+            <div class="container">
+                <div class="main-header">
+                    <div class="logo-container" >
+                        <a href="/" title="Dubi Duba" >
+                            <img class="img-responsive" src="images/dubiduba.png"/>
+                        </a>
+                    </div>
+                    <div ng-include="'partials/navbar'" class="header-wrapper"></div>
+                    <div class="main-menu">
+                        <div ng-include="'partials/menunavbar'" class="main-menu-wrapper"></div>
+                    </div>
                 </div>
-                <div ng-include="'partials/navbar'" class="header-wrapper"></div>
-                <div class="main-menu">
-                    <div ng-include="'partials/menunavbar'" class="main-menu-wrapper"></div>
-                </div>
+                <div class="clearfix"></div>
             </div>
         </div>
     </div>
