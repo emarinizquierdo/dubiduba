@@ -11,6 +11,7 @@ angular.module('dubidubaApp')
 
           scope.$watch('source',function(n,o){
             element.parent().height(element.parent().height());
+            element.css('display','none');
             element.fadeOut(100);
           });
 

@@ -16,10 +16,10 @@
 			</div>
 			<div class="col-md-6">
 				<div class="row article-title">
-					<div class="col-md-8 ">
+					<div class="col-md-7 ">
 						<h1 class="item_name">{{articleData.name}}</h1>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-5">
 						<div class="article-price-wrapper">
 							<span class="article-price item_price">{{articleData.price}} €</span>
 						</div>
@@ -33,14 +33,30 @@
 							<li ng-repeat="size in articleData.stock" ng-class="{'active' : (size.active && size.amount != 0) , 'stockoff' : (size.amount == 0)}" ng-click="setActiveSize($index)">{{size.size.value}}</li>
 						</ul>
 
-						<div class="item_size">{{sizeSelected}}</div>
+						<span class="item_articleid">{{articleData._id}}</span>
+						<div class="item_size">{{sizeSelected.size.value}}</div>
+						<span class="item_indexsize">{{indexSize}}</span>
 						<div class="">
 							<p>
 								<div class="form-inline row">
-									<div class="col-xs-3">
-										<input type="text" value="1" name="name" class="form-control item_Quantity" />
+									<div class="col-xs-5">
+										<div class="btn-group btn-group-justified">
+											<div class="btn-group">
+												<button type="button" class="btn btn-default" ng-disabled="itemQuantity <= 0" ng-click="itemQuantity=itemQuantity-1;">
+													<span class="glyphicon glyphicon-chevron-down"></span>
+												</button>
+											</div>
+											<div class="btn-group">
+												<span class="btn btn-default item_Quantity">{{itemQuantity}}</span>
+											</div>
+											<div class="btn-group">
+												<button type="button" class="btn btn-default" ng-disabled="!sizeSelected || (itemQuantity == sizeSelected.amount)" ng-click="itemQuantity=itemQuantity+1;">
+													<span class="glyphicon glyphicon-chevron-up"></span>
+												</button>
+											</div>
+										</div>
 									</div>
-									<a class="item_add btn btn-default" href="javascript:;"> Añadir al carrito </a>
+									<a class="item_add btn btn-default" href="javascript:;" ng-class="{'disabled' : (!sizeSelected || itemQuantity == 0)}"> Añadir al carrito </a>
 								</div>							
 							</p>
 						</div>

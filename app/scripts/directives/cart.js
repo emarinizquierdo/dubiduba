@@ -54,7 +54,7 @@ angular.module('dubidubaApp')
 
 				// array of item fields that will not be 
 				// sent to checkout
-				excludeFromCheckout: [],
+				excludeFromCheckout: ['indexsize'],
 
 				// custom function to add shipping cost
 				shippingCustom: null,

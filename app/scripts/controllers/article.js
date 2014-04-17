@@ -6,6 +6,9 @@ angular.module('dubidubaApp')
 	    $scope.articleData = {}
 	    $scope.mainPhoto;
 	    $scope.launchOwl = false;
+	    $scope.sizeSelected = false;
+	    $scope.itemQuantity = 0;
+	    $scope.indexSize;
 
 	    $scope.mainPhotoChanger = function( p_data ){
 	    	$scope.mainPhoto = p_data;
@@ -17,8 +20,16 @@ angular.module('dubidubaApp')
 	    	for(_i=0; _i < $scope.articleData.stock.length; _i++){
 	    		$scope.articleData.stock[_i].active = false;
 	    	}
-	    	$scope.articleData.stock[p_index].active = true;
-	    	$scope.sizeSelected = $scope.articleData.stock[p_index].size.value;
+
+	    	if($scope.articleData.stock[p_index].amount > 0 ){
+	    		$scope.articleData.stock[p_index].active = true;
+	    		$scope.sizeSelected = $scope.articleData.stock[p_index];
+	    		$scope.itemQuantity = 0;
+	    		$scope.indexSize = p_index;	
+	    	}else{
+	    		$scope.sizeSelected = false;
+	    		$scope.indexSize = null;
+	    	}	    	
 	    }
 
 	    Item.get({ id : $routeParams.id },function(article) {
@@ -65,6 +76,11 @@ angular.module('dubidubaApp')
 	    }, function(error){
 	    	
 	    });
+
+		simpleCart.bind( 'beforeAdd' , function( item ){
+		  console.log( item.get('name') ); 
+		  console.log( item.get('index') ); 
+		});
 
   }]).directive("owlCarousel", function(){
 	return {
