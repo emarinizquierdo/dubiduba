@@ -734,6 +734,14 @@ body {
 
 /* My Cart */
 
+.simpleCart_items{
+  border-bottom: 1px solid #ddd;
+}
+
+.simpleCart_items table{
+  width: 100%;
+}
+
 .simpleCart_items .headerRow{
   padding: 8px;
   line-height: 1.42857143;
@@ -746,11 +754,56 @@ body {
 }
 
 .simpleCart_items th {
-  width: 300px;
+
 }
 
 .simpleCart_items .item-thumb img{
   width: 90px;
+}
+
+.total_costs {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.total_cost_text{
+  font-size: 18px;
+  margin-right: 45px;
+}
+
+.total_cost_value{
+  font-size: 30px;
+  margin-right: 13px;
+}
+
+.end_buy{
+  margin-top: 20px;
+  text-align: right;
+}
+
+.continue_buying{
+  margin-right:20px;
+}
+
+.simpleCart_checkout{
+  margin-right: 16px;
+}
+
+.total_costs .simpleCart_shipping{
+  margin-right: 16px;
+}
+
+.total_costs .simpleCart_total{
+  margin-right: 16px;
+}
+
+.send_costs {
+  color: #8D8D8D;
+}
+
+.send_cost_text{
+  margin-right: 20px;
+  font-weight: bold;
 }
 
 .header .simpleCart_total {
@@ -1028,6 +1081,10 @@ body {
   .cart-wrapper{
     width: 223px;
     float: right;
+  }
+
+  .simpleCart_items .item-thumb img {
+    width: 50px;
   }
 
 }

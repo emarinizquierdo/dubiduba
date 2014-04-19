@@ -21,12 +21,10 @@ angular.module('dubidubaApp')
 					{ view: "image" , attr: "thumb", label: false },
 					{ attr: "name", label: "Producto"},
 					{ attr: "size", label: "Talla"},
-					{ view: "currency", attr: "price", label: "Precio"},
-					{ view: "decrement", label: false},
 					{ attr: "quantity", label: "Cantidad"},
-					{ view: "increment", label: false},
+					{ view: "currency", attr: "price", label: "Precio"},
 					{ view: "currency", attr: "total", label: "SubTotal" },
-					{ view: "remove", text: "Remove", label: false}
+					{ view: "remove", text: "", label: false}
 				],
 
 				// "div" or "table" - builds the cart as a 
@@ -37,7 +35,7 @@ angular.module('dubidubaApp')
 				// checkout reference for more info 
 				checkout: { 
 					type: "PayPal" , 
-					email: "you@yours.com" 
+					email: "testingdubidubavendor@gmail.com" 
 				},
 
 				// set the currency, see the currency 
@@ -54,17 +52,17 @@ angular.module('dubidubaApp')
 
 				// array of item fields that will not be 
 				// sent to checkout
-				excludeFromCheckout: ['indexsize'],
+				excludeFromCheckout: ['indexsize', 'thumb', 'articleid'],
 
 				// custom function to add shipping cost
 				shippingCustom: null,
 
 				// flat rate shipping option
-				shippingFlatRate: 0,
+				shippingFlatRate: 6,
 
 				// added shipping based on this value 
 				// multiplied by the cart quantity
-				shippingQuantityRate: 0,
+				shippingQuantityRate: 0.4,
 
 				// added shipping based on this value 
 				// multiplied by the cart subtotal
@@ -74,7 +72,9 @@ angular.module('dubidubaApp')
 				taxRate: 0,
 
 				// true if tax should be applied to shipping
-				taxShipping: false,
+				taxShipping: true,
+
+				sandbox: true ,
 
 				// event callbacks 
 				beforeAdd			: _beforeAdd,
