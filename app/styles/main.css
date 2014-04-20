@@ -761,6 +761,10 @@ body {
   width: 90px;
 }
 
+.simpleCart_shelfItem .item-thumb{
+  text-align: center;
+}
+
 .total_costs {
   text-align: right;
   margin-top: 20px;
@@ -1087,6 +1091,13 @@ body {
     width: 50px;
   }
 
+  .simpleCart_shelfItem .item-thumb{
+    text-align: center;
+  }
+
+  .go_on{
+    display: none;
+  }
 }
 
 /* Customize container */
