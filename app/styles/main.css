@@ -892,15 +892,11 @@ body {
   padding-bottom: 10px;
 }
 
-.item-buy-selector .item_articleid{
-  display: none;
-}
-
-.item-buy-selector .item_indexsize{
-  display: none;
-}
-
-.item-buy-selector .item_size{
+.item-buy-selector .item_articleid,
+.item-buy-selector .item_indexsize,
+.item-buy-selector .item_size,
+.item-buy-selector .item_idsize,
+.item-buy-selector .item_currentquantity{
   display: none;
 }
 

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dubidubaApp')
-.directive('cart', function () {
+.directive('cart', function() {
 	return {
 		templateUrl: 'partials/cart.html',
 		restrict: 'A',
@@ -10,8 +10,9 @@ angular.module('dubidubaApp')
 		},
 		controller: function postLink($scope, $element, $q, Flickr) {
 
-			var _beforeAdd = function(event){
-				
+			if(!sessionStorage.getItem("inSessionSC")){
+				simpleCart.empty();
+				sessionStorage.setItem("inSessionSC", "true");
 			}
 
 			simpleCart({
@@ -35,7 +36,10 @@ angular.module('dubidubaApp')
 				// checkout reference for more info 
 				checkout: { 
 					type: "PayPal" , 
-					email: "testingdubidubavendor@gmail.com" 
+					//email: "testingdubidubavendor@gmail.com",
+					email: "dubidubacanastillas@gmail.com",
+					sandbox: false,
+					success: "http://dubi-duba.com/"
 				},
 
 				// set the currency, see the currency 
@@ -52,17 +56,17 @@ angular.module('dubidubaApp')
 
 				// array of item fields that will not be 
 				// sent to checkout
-				excludeFromCheckout: ['indexsize', 'thumb', 'articleid'],
+				excludeFromCheckout: ['indexsize', 'thumb', 'articleid', 'idsize', 'currentquantity'],
 
 				// custom function to add shipping cost
 				shippingCustom: null,
 
 				// flat rate shipping option
-				shippingFlatRate: 6,
+				shippingFlatRate: 0,
 
 				// added shipping based on this value 
 				// multiplied by the cart quantity
-				shippingQuantityRate: 0.4,
+				shippingQuantityRate: 0,
 
 				// added shipping based on this value 
 				// multiplied by the cart subtotal
@@ -74,11 +78,9 @@ angular.module('dubidubaApp')
 				// true if tax should be applied to shipping
 				taxShipping: true,
 
-				sandbox: true ,
-
 				// event callbacks 
-				beforeAdd			: _beforeAdd,
-				afterAdd			: _beforeAdd,
+				beforeAdd			: null,
+				afterAdd			: null,
 				load				: null,
 				beforeSave		: null,
 				afterSave			: null,
@@ -93,5 +95,5 @@ angular.module('dubidubaApp')
 			simpleCart.load();
 		}
 	};
-})
+});
 

@@ -10,6 +10,22 @@ angular.module('dubidubaApp')
 	    $scope.itemQuantity = 0;
 	    $scope.indexSize;
 
+	    var _checkStock = function(){
+	    	var   _items = simpleCart.items()
+	    		, _i = 0
+	    		, _j = 0
+	    		;
+
+	    	for( _i=0; _i < _items.length; _i++ ){
+				for(_j = 0; _j < $scope.articleData.stock.length; _j++){
+					if($scope.articleData.stock[_j].size._id == _items[_i].options().idsize){
+						$scope.articleData.stock[_j].amount -= _items[_i].quantity();
+					}
+				}
+	    	}
+
+	    }
+
 	    $scope.mainPhotoChanger = function( p_data ){
 	    	$scope.mainPhoto = p_data;
 	    };
@@ -73,13 +89,25 @@ angular.module('dubidubaApp')
                 + $scope.articleData.photos[_i].photo.secret + "_z.jpg";
         	}
 
+        	_checkStock();
+
 	    }, function(error){
 	    	
 	    });
 
 		simpleCart.bind( 'beforeAdd' , function( item ){
-		  console.log( item.get('name') ); 
-		  console.log( item.get('index') ); 
+			console.log( item.get('name') ); 
+			console.log( item.get('index') ); 
+			var _i = 0;
+			for(_i = 0; _i < $scope.articleData.stock.length; _i++){
+				if($scope.articleData.stock[_i].size._id == item.options().idsize){
+					$scope.articleData.stock[_i].amount -= item.quantity();
+					$scope.itemQuantity -= item.quantity();
+					if(!$scope.$phase){
+						$scope.$apply();
+					}
+				}
+			}
 		});
 
 		$('.add-to-cart').click(function(){
