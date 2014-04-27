@@ -2,6 +2,7 @@
 
 angular.module('dubidubaApp')
   .controller('ArticleCtrl', ['$scope', '$http', '$location', '$routeParams', 'Item', function ($scope, $http, $location, $routeParams, Item) {
+        $scope.loading=false;
         $scope.errors = {};
 	    $scope.articleData = {}
 	    $scope.mainPhoto;
@@ -23,6 +24,8 @@ angular.module('dubidubaApp')
 					}
 				}
 	    	}
+
+	    	$scope.loading = false;
 
 	    }
 
@@ -47,6 +50,8 @@ angular.module('dubidubaApp')
 	    		$scope.indexSize = null;
 	    	}	    	
 	    }
+
+	    $scope.loading = true;
 
 	    Item.get({ id : $routeParams.id },function(article) {
 

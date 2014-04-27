@@ -10,10 +10,21 @@ angular.module('dubidubaApp')
 		},
 		controller: function postLink($scope, $element, $q, Flickr) {
 
+			$scope.hideAmount = true;
+
 			if(!sessionStorage.getItem("inSessionSC")){
 				simpleCart.empty();
 				sessionStorage.setItem("inSessionSC", "true");
 			}
+
+			var _afterAdd = function(){
+				$scope.hideAmount = (simpleCart.items().length <= 0);
+				if(!$scope.$$phase){
+					$scope.$apply();
+				}
+			}
+
+			_afterAdd();
 
 			simpleCart({
 				// array representing the format and columns of the cart,
@@ -36,9 +47,9 @@ angular.module('dubidubaApp')
 				// checkout reference for more info 
 				checkout: { 
 					type: "PayPal" , 
-					//email: "testingdubidubavendor@gmail.com",
-					email: "dubidubacanastillas@gmail.com",
-					sandbox: false,
+					email: "testingdubidubavendor@gmail.com",
+					//email: "dubidubacanastillas@gmail.com",
+					sandbox: true,
 					success: "http://dubi-duba.com/"
 				},
 
@@ -80,7 +91,7 @@ angular.module('dubidubaApp')
 
 				// event callbacks 
 				beforeAdd			: null,
-				afterAdd			: null,
+				afterAdd			: _afterAdd,
 				load				: null,
 				beforeSave		: null,
 				afterSave			: null,
@@ -89,7 +100,7 @@ angular.module('dubidubaApp')
 				checkoutSuccess	: null,
 				checkoutFail		: null,
 				beforeCheckout		: null,
-				beforeRemove           : null
+				beforeRemove           : _afterAdd
 			});
 
 			simpleCart.load();

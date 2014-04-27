@@ -2,36 +2,48 @@
 	
 	<h2>Mi carrito</h2>
 	<div class="white-box article-view">
-		<div class="row">
 
-
+		<div class="row" ng-hide="emptyCart">
 			<div class="col-md-12">
-				<div class="simpleCart_items"></div>
-			</div>
-
-		</div>
-
-		<div class="row">
-			<div class="col-md-4">
-
-			</div>
-			<div class="col-md-8 total_costs">
-				<div class="send_costs">
-					<span class="send_cost_text">Gastos de envío:</span><span class="simpleCart_shipping"></span>
-				</div>
-				<div class="total_costs">
-					<span class="total_cost_text">Total</span><span class="total_cost_value simpleCart_grandTotal"></span>
-				</div>
+				<div class="alert alert-info">El carrito está vacío, prueba a buscar más productos en nuestro <a href="/catalog">Catálogo</a>!!</div>
 			</div>
 		</div>
-		<div class="row end_buy">
-			<div class="col-md-2">
-				
+
+		<div class="row" ng-show="redirecting">
+			<div class="col-md-12">
+				<div class="alert alert-warning">Va a ser redirigido a PayPal para finalizar su compra. Por favor, aguarde unos instantes.</div>
 			</div>
-			<div class="col-md-10">
-				<span class="go_on">Continuar comprando más artículos. Ver </span><a href="/catalog" class="continue_buying">Catálogo</a>
-				<a ng-click="SendToCheckout()" class="btn btn-danger">Finalizar Compra
-				</a>
+		</div>	
+
+		<div ng-show="emptyCart && !redirecting">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="simpleCart_items"></div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-4">
+
+				</div>
+				<div class="col-md-8 total_costs">
+					<div class="send_costs">
+						<span class="send_cost_text">Gastos de envío:</span><span class="simpleCart_shipping"></span>
+					</div>
+					<div class="total_costs">
+						<span class="total_cost_text">Total</span><span class="total_cost_value simpleCart_grandTotal"></span>
+					</div>
+				</div>
+			</div>
+			<div class="row end_buy">
+				<div class="col-md-2">
+					
+				</div>
+				<div class="col-md-10">
+					<span class="go_on">Continuar comprando más artículos. Ver </span><a href="/catalog" class="continue_buying">Catálogo</a>
+					<a ng-click="SendToCheckout()" class="btn btn-danger">Finalizar Compra
+					</a>
+				</div>
 			</div>
 		</div>
 

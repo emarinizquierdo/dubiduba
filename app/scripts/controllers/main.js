@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dubidubaApp')
-  .controller('MainCtrl', ['$scope', '$location', '$http', 'Item', 'Favourite', function ($scope, $location, $http, Item, Favourite) {
+  .controller('MainCtrl', ['$rootScope', '$scope', '$location', '$http', 'Item', 'Favourite', function ($rootScope, $scope, $location, $http, Item, Favourite) {
     
   	$scope.groupedItems = [];
     $scope.favouritesItems = [];
@@ -60,8 +60,9 @@ angular.module('dubidubaApp')
             + $scope.maininfo.photos[_i].photo.id + "_" 
             + $scope.maininfo.photos[_i].photo.secret + "_b.jpg";
           }       
-      }
+        }
 
+      $rootScope.facebooklink = $scope.maininfo.facebooklink;
     }
 
     Item.get({

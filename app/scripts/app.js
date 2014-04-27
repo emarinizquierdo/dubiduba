@@ -10,13 +10,15 @@ angular.module('dubidubaApp', [
   'bootstrap-tagsinput',
   'ui.tinymce',
   'ui.bootstrap',
-  'ui.nestedSortable'
+  'ui.nestedSortable',
+  'ng-breadcrumbs'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'partials/main',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        label: 'Home'
       })
       .when('/login', {
         templateUrl: 'partials/login',
@@ -33,11 +35,13 @@ angular.module('dubidubaApp', [
       })
       .when('/admin', {
         templateUrl: 'partials/admin',
-        controller: 'AdminCtrl'
+        controller: 'AdminCtrl',
+        label: 'Administración'
       })
       .when('/admin/article', {
         templateUrl: 'partials/admin/article',
-        controller: 'AdminArticleCtrl'
+        controller: 'AdminArticleCtrl',
+        label: 'Artículo'
       })
       .when('/admin/article/view/:id', {
         templateUrl: 'partials/admin/article/view',
@@ -49,7 +53,8 @@ angular.module('dubidubaApp', [
       })
       .when('/admin/article/edit/', {
         templateUrl: 'partials/admin/article/edit',
-        controller: 'AdminArticleEditCtrl'
+        controller: 'AdminArticleEditCtrl',
+        label: 'Editar'
       })
       .when('/admin/article/edit/:id', {
         templateUrl: 'partials/admin/article/edit',
@@ -57,7 +62,8 @@ angular.module('dubidubaApp', [
       })
       .when('/admin/maininfo/edit/', {
         templateUrl: 'partials/admin/maininfo/edit',
-        controller: 'AdminMaininfoEditCtrl'
+        controller: 'AdminMaininfoEditCtrl',
+        label: 'Portada'
       })
       .when('/admin/maininfo/edit/:id', {
         templateUrl: 'partials/admin/maininfo/edit',
@@ -69,23 +75,23 @@ angular.module('dubidubaApp', [
       })
       .when('/catalog', {
         templateUrl: 'partials/catalog',
-        controller: 'CatalogCtrl'
-      })
-      .when('/catalog', {
-        templateUrl: 'partials/catalog',
-        controller: 'CatalogCtrl'
+        controller: 'CatalogCtrl',
+        label: 'Catálogo'
       })
       .when('/catalog/:id', {
         templateUrl: 'partials/catalog',
-        controller: 'CatalogCtrl'
+        controller: 'CatalogCtrl',
+        label: ':id'
       })
       .when('/article/:id', {
         templateUrl: 'partials/article',
-        controller: 'ArticleCtrl'
+        controller: 'ArticleCtrl',
+        label: 'Artículo'
       })
       .when('/pedidos', {
         templateUrl: 'partials/pedidos',
-        controller: 'PedidosCtrl'
+        controller: 'PedidosCtrl',
+        label: 'Carrito'
       })
       .otherwise({
         redirectTo: '/'

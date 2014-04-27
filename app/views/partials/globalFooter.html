@@ -1,4 +1,4 @@
-<div class="global-footer-wrapper">
+<div class="global-footer-wrapper" ng-controller="FooterCtrl">
 	<div class="main-block">
 		<div class="row">
 			<div class="col-md-3">
@@ -6,10 +6,16 @@
 			<div class="col-md-3">
 				<h5>Síguenos</h5>
 				<div class="social-links">
-			    <ul>
-					<li class="facebook"><a href="{{maininfo.facebooklink}}" title="Dubi Duba en facebook" class="blank"><b class="social-icon--facebook"></b>Hazte fan en Facebook</a></li>
-			    </ul>
-			</div>
+				    <ul>
+						<li class="facebook"><a href="{{facebooklink}}" target="_blank" title="Dubi Duba en facebook" class="blank"><b class="social-icon--facebook"></b>Hazte fan en Facebook</a></li>
+				    </ul>
+				</div>
+			    <h5>Categorías</h5>
+				<div class="social-links">
+				    <ul>
+						<li class="pointer" ng-repeat="category in categories.categories" ng-click="goTo('/catalog/' + category.id)">{{category.name}}</li>
+				    </ul>
+				</div>
 			</div>
 			<div class="col-md-3">
 				<h5>Contáctanos</h5>
@@ -34,8 +40,11 @@
 		<div class="row">
 			<div class="col-md-2">
 			</div>
-			<div class="col-md-8">
+			<div class="col-md-7">
 				Copyright © 2014 - Dubi Duba. Todos los derechos reservados.
+			</div>
+			<div class="col-md-1">
+				<b class="paypal-logo"></b>
 			</div>
 			<div class="col-md-2">
 			</div>
