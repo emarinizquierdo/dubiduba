@@ -37,16 +37,16 @@ angular.module('dubidubaApp')
             $scope.loading = true;
 
             Flickr.uploadPhoto(file, function(p_data){
-              $scope.$parent.imagesToLoad[$scope.$index].photo = p_data.photo;
+              $scope.$parent.imagesToLoad[$scope.$index].photo = p_data.photo[0].$;
               $scope.$parent.imagesToLoad[$scope.$index].loaded = true;
               $scope.loading = false;
               $scope.loaded = true;
               $scope.imageSrc = "http://farm" 
-                + p_data.photo.farm 
+                + p_data.photo[0].$.farm 
                 + ".staticflickr.com/" 
-                + p_data.photo.server + "/" 
-                + p_data.photo.id + "_" 
-                + p_data.photo.secret + "_s.jpg";
+                + p_data.photo[0].$.server + "/" 
+                + p_data.photo[0].$.id + "_" 
+                + p_data.photo[0].$.secret + "_s.jpg";
                 $element.unbind('change');
                 $element.find('input').remove();
                 $scope.$parent.imagesLoading -= 1;
