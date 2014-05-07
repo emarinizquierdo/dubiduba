@@ -47,9 +47,9 @@ angular.module('dubidubaApp')
 				// checkout reference for more info 
 				checkout: { 
 					type: "PayPal" , 
-					email: "testingdubidubavendor@gmail.com",
-					//email: "dubidubacanastillas@gmail.com",
-					sandbox: true,
+					//email: "testingdubidubavendor@gmail.com",
+					email: "dubidubacanastillas@gmail.com",
+					sandbox: false,
 					success: "http://dubi-duba.com/"
 				},
 
